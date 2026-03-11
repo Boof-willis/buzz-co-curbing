@@ -1,0 +1,61 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import TrustBar from '../components/TrustBar.astro';
+import Features from '../components/Features.astro';
+import SocialProof from '../components/SocialProof.astro';
+import CounterStats from '../components/CounterStats.astro';
+import CounterStatsAnimation from '../components/CounterStatsAnimation.jsx';
+import Philosophy from '../components/Philosophy.astro';
+import PhilosophyReveal from '../components/PhilosophyReveal.jsx';
+import Protocol from '../components/Protocol.astro';
+import FAQ from '../components/FAQ.astro';
+import GetStarted from '../components/GetStarted.astro';
+import ServiceArea from '../components/ServiceArea.astro';
+import locationsData from '../data/locations.json';
+
+const defaultLoc = locationsData.locations.find(l => l.id === 'logan');
+const loc = defaultLoc;
+const allCities = locationsData.locations.flatMap(l => l.cities);
+const allPriorityCities = locationsData.locations.flatMap(l => l.priorityCities);
+---
+
+<BaseLayout
+  title="Concrete Curbing in Utah | Buzz Co Curbing"
+  description="Premium decorative concrete curbing for Utah homeowners. 14 colors, 10 patterns, same-week scheduling. Free estimates — call Buzz Co Curbing today."
+  locationId={loc.id}
+  phone={loc.phone}
+  phoneHref={loc.phoneHref}
+  showFaq={true}
+>
+  <Hero
+    locationId={loc.id}
+    locationName={loc.name}
+    cityName="Utah"
+    phone={loc.phone}
+    phoneHref={loc.phoneHref}
+    estimateUrl={`/${loc.id}/get-estimate/`}
+  />
+  <TrustBar />
+  <Features locationId={loc.id} cityName="Utah" />
+  <SocialProof testimonials={loc.testimonials} locationId={loc.id} />
+  <CounterStats />
+  <CounterStatsAnimation client:visible />
+  <Philosophy locationId={loc.id} />
+  <PhilosophyReveal client:visible />
+    <Protocol />
+  <FAQ locationId={loc.id} cityName="Utah" />
+  <GetStarted
+    locationId=""
+    phone={loc.phone}
+    phoneHref={loc.phoneHref}
+    testimonial={loc.testimonials[0] ? { name: loc.testimonials[0].name, text: loc.testimonials[0].text, rating: loc.testimonials[0].rating } : undefined}
+  />
+  <ServiceArea
+    cities={allCities}
+    priorityCities={allPriorityCities}
+    locationId={loc.id}
+    cityName="Utah"
+    estimateUrl={`/${loc.id}/get-estimate/`}
+  />
+</BaseLayout>

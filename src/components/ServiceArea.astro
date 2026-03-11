@@ -1,0 +1,77 @@
+---
+import locationsData from '../data/locations.json';
+
+interface Props {
+  cities: string[];
+  priorityCities: string[];
+  locationId: string;
+  cityName?: string;
+  estimateUrl: string;
+}
+
+const { locationId, cityName = "Utah" } = Astro.props;
+
+// Get all locations from the data file
+const { locations } = locationsData;
+---
+
+<section id="service-areas" class="bg-[#fafaf8] py-28 lg:py-36" aria-label="Service areas">
+  <div class="mx-auto max-w-7xl px-6 md:px-8">
+    <div class="mb-16">
+      <p class="font-data text-[10px] uppercase tracking-widest text-dark/40 mb-4">SERVICE AREAS</p>
+      <h2 class="font-heading text-4xl md:text-5xl text-dark mb-4">
+        Find Your Local Team
+      </h2>
+      <p class="font-body text-lg text-dark/60 max-w-2xl">
+        Three owner-operated territories across Northern Utah. Same craftsmanship, same standards, local service.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+      {locations.map((loc) => {
+        // Build the specific territory names from the user prompt
+        let territoryHeading = "";
+        let displayCities = "";
+        let viewLabel = "";
+
+        if (loc.id === "logan") {
+          territoryHeading = "Logan & Surrounding Areas";
+          displayCities = "Logan · Smithfield · Hyde Park · Providence · Nibley · North Logan";
+          viewLabel = "View Cache Valley";
+        } else if (loc.id === "central") {
+          territoryHeading = "Brigham City to Sandy";
+          displayCities = "Ogden · Layton · Bountiful · Salt Lake City · Sandy";
+          viewLabel = "View Central Utah";
+        } else {
+          territoryHeading = "Draper to Provo";
+          displayCities = "Draper · Lehi · Orem · Provo · American Fork";
+          viewLabel = "View South Utah";
+        }
+
+        return (
+          <article class="flex flex-col bg-white border border-dark/[0.06] border-t-[3px] border-t-[#fcc33c] p-8 md:p-10 rounded-none hover:shadow-lg hover:border-[#fcc33c]/30 transition-all duration-300">
+            <span class="font-data text-[10px] uppercase tracking-widest text-dark/40 mb-4">
+              {loc.label}
+            </span>
+            
+            <h3 class="font-heading text-xl md:text-2xl text-dark mb-3">
+              {territoryHeading}
+            </h3>
+            
+            <a href={loc.phoneHref} class="font-data text-[#fcc33c] text-lg mb-4 hover:opacity-80 transition-opacity">
+              {loc.phone}
+            </a>
+            
+            <p class="font-body text-sm text-dark/50 mb-6 flex-grow">
+              {displayCities}
+            </p>
+            
+            <a href={`/${loc.id}/`} class="font-heading text-sm font-semibold text-dark hover:text-[#fcc33c] transition-colors inline-flex items-center gap-2 mt-auto">
+              {viewLabel} →
+            </a>
+          </article>
+        );
+      })}
+    </div>
+  </div>
+</section>

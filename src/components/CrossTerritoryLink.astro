@@ -1,0 +1,28 @@
+---
+import locationsData from '../data/locations.json';
+
+interface Props {
+  locationId: string;
+}
+
+const { locationId } = Astro.props;
+const { locations } = locationsData;
+
+const TERRITORY_NAMES: Record<string, string> = {
+  logan: 'Cache Valley',
+  central: 'Brigham City to Sandy',
+  south: 'Draper to Provo',
+};
+
+const otherLocations = locations.filter(l => l.id !== locationId);
+---
+
+<div class="py-8 text-center border-t border-dark/[0.06]">
+  <p class="font-body text-sm text-dark/40">
+    Not in <span class="font-semibold">{TERRITORY_NAMES[locationId]}</span>? 
+    We also serve 
+    <a href={`/${otherLocations[0].id}/`} class="text-dark/60 hover:text-[#fcc33c] underline underline-offset-2 transition-colors">{TERRITORY_NAMES[otherLocations[0].id]}</a> 
+    and 
+    <a href={`/${otherLocations[1].id}/`} class="text-dark/60 hover:text-[#fcc33c] underline underline-offset-2 transition-colors">{TERRITORY_NAMES[otherLocations[1].id]}</a>.
+  </p>
+</div>

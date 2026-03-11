@@ -1,0 +1,108 @@
+---
+import FAQAccordion from './FAQAccordion';
+
+interface Props {
+  locationId: string;
+  cityName?: string;
+}
+
+const { locationId, cityName = "Utah" } = Astro.props;
+
+const faqs = [
+  {
+    question: "How much does concrete curbing cost?",
+    answer: `Most residential curbing projects in ${cityName} run between $5 and $8 per linear foot, depending on the style and color you choose. We give exact quotes on-site during the walkthrough — no guessing, no surprises. The estimate is always free.`,
+  },
+  {
+    question: "How long does installation take?",
+    answer:
+      "Most jobs are finished in a single day. We typically pour curbing the morning after your evening estimate. A standard residential yard takes 3–6 hours from start to cleanup.",
+  },
+  {
+    question: "What areas do you serve?",
+    answer:
+      "We serve homeowners across Utah through our three franchise territories: Cache Valley (Logan area), Central (Brigham City to Sandy), and South (Draper to Provo). Check our service areas page for your specific city.",
+  },
+  {
+    question: "What happens during the estimate?",
+    answer:
+      "Justin or your local Buzz Co operator comes to your property — usually in the evening when both homeowners can be present. We walk the yard together, talk about what you're envisioning, measure everything on the spot, and give you a firm quote before we leave. No pressure, no follow-up sales calls.",
+  },
+  {
+    question: "How do I choose a color and pattern?",
+    answer:
+      "We offer 14 integral colors and 10 stamp patterns. During the on-site estimate, we bring samples so you can see how different colors look against your home's exterior, landscaping rock, and existing concrete. We'll make honest recommendations about what looks best with your setup.",
+  },
+  {
+    question: "Is the curbing durable? Will it crack?",
+    answer:
+      "Concrete curbing is built to last. It handles Utah winters, sprinkler systems, and lawn mower contact. Minor hairline cracks can develop over time — that's normal for any concrete — but they don't affect the structure or function. We also offer re-sealing to extend color life.",
+  },
+];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((faq) => ({
+    "@type": "Question",
+    name: faq.question,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: faq.answer,
+    },
+  })),
+};
+---
+
+<section id="faq" class="bg-warm-white py-20 md:py-32" aria-label="Frequently asked questions">
+  <FAQAccordion client:load />
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+
+  <div class="mx-auto max-w-3xl px-6 md:px-8">
+    <p class="section-label mb-4">COMMON QUESTIONS</p>
+    <h2 class="font-heading text-section-heading font-bold text-dark mb-12">
+      Concrete Curbing Questions from {cityName} Homeowners
+    </h2>
+
+    <div class="space-y-0">
+      {faqs.map((faq, i) => (
+        <div class="border-b border-dark/10" data-faq-item>
+          <button
+            type="button"
+            class="flex w-full items-center justify-between py-6 text-left"
+            data-faq-toggle
+            aria-expanded="false"
+            aria-controls={`faq-answer-${i}`}
+            id={`faq-question-${i}`}
+          >
+            <span class="font-heading font-medium text-lg md:text-xl text-dark pr-8">{faq.question}</span>
+            <span
+              data-faq-icon
+              class="text-accent text-2xl transition-transform duration-300"
+              aria-hidden="true"
+            >
+              +
+            </span>
+          </button>
+          <div
+            id={`faq-answer-${i}`}
+            data-faq-answer
+            class="pb-6 font-body text-dark/70 leading-relaxed"
+            role="region"
+            aria-labelledby={`faq-question-${i}`}
+          >
+            {faq.answer}
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- CTA -->
+    <div class="mt-16 text-center">
+      <p class="font-body mb-6 text-lg text-dark/70">Still have questions? We're happy to talk.</p>
+      <a href={`/${locationId}/get-estimate/`} class="btn-primary">
+        Get a Free Estimate
+      </a>
+    </div>
+  </div>
+</section>

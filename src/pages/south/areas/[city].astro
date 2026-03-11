@@ -1,0 +1,289 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import locationsData from '../../../data/locations.json';
+import services from '../../../data/services.json';
+
+const loc = locationsData.locations.find(l => l.id === 'south');
+
+const cityContent = {
+  lehi: {
+    name: 'Lehi',
+    title: 'Concrete Curbing in Lehi, UT | Buzz Co',
+    description: 'Decorative concrete curbing for Lehi homeowners. 14 colors, 10 patterns, same-week scheduling. Free estimates from Buzz Co Curbing.',
+    h1: 'Concrete Curbing Services in Lehi, Utah',
+    copy: `<p>Lehi is one of the fastest-growing cities in all of Utah, and it's easy to see why — the Thanksgiving Point area, proximity to the tech corridor along I-15, and mountain views in every direction make it a magnet for families and professionals moving to Utah County. All that growth means thousands of new homes with builder-grade landscaping that's begging for an upgrade. Buzz Co Curbing helps Lehi homeowners close the gap between "just moved in" and "this yard is dialed."</p>
+<p>Drive through any of Lehi's newer communities — Traverse Mountain, Holbrook Farms, the neighborhoods near the Outlets at Traverse Mountain — and you'll spot the difference curbing makes immediately. Homes with clean concrete borders around flower beds, along walkways, and framing driveways look finished and intentional. Homes without curbing look like they're still waiting for the landscaper to come back. We make sure your yard is in the first category.</p>
+<p>We offer 14 integral concrete colors that run through the entire curb, 10 stamp patterns from natural stone to brick to modern smooth profiles, and 4 curb styles including the mower-style that Silicon Slopes families love because it eliminates weekend hand-trimming entirely. Every color and pattern is chosen to complement the modern architectural styles going up across Lehi right now.</p>
+<p>Our process fits the Lehi lifestyle — fast, efficient, no wasted time. Call or text for a free evening estimate. We walk your property, recommend the right combination for your home, and give you an honest price. Most Lehi installs happen the same week. You go to work at one of the tech companies down the road, and when you come home your yard looks transformed.</p>
+<p>From the established neighborhoods near Lehi Main Street to the brand-new builds at the Point of the Mountain, Buzz Co is the curbing crew that Lehi trusts. Licensed, insured, and delivering same-week scheduling across Utah Valley.</p>`,
+  },
+  orem: {
+    name: 'Orem',
+    title: 'Concrete Curbing in Orem, UT | Buzz Co',
+    description: 'Decorative concrete curbing for Orem homeowners. 14 colors, 10 patterns, same-week scheduling. Free estimates from Buzz Co Curbing.',
+    h1: 'Concrete Curbing Services in Orem, Utah',
+    copy: `<p>Orem sits right in the heart of Utah Valley, and its neighborhoods reflect decades of growth — from the 1960s and 70s ranch-style homes near University Parkway to the newer subdivisions climbing the east bench toward the mountains. Whether you're updating the landscaping on a classic Orem property or putting the finishing touches on a newer build, decorative concrete curbing from Buzz Co is the upgrade that ties everything together.</p>
+<p>The established neighborhoods around the University Mall area and along State Street have a distinct character: mature trees, deep yards, and homeowners who've been maintaining their properties for years. Our curbing gives these yards a fresh, modern edge without competing with the existing landscape. Clean borders around flower beds, permanent edging along walkways, and defined tree rings bring structure to what years of organic growth have blurred.</p>
+<p>Up on the Orem benches, newer construction means newer landscaping challenges. Builders lay sod and call it done, leaving homeowners to figure out the details. Our 14 integral colors, 10 stamp patterns, and 4 curb styles give you the tools to define your yard exactly how you want it — and the mower-style curb is a favorite among Orem families who'd rather spend their Saturdays somewhere other than hand-trimming the edges.</p>
+<p>Orem homeowners appreciate straightforward service, and that's what we deliver. Call or text for a free evening estimate. We walk your yard, help you pick the right color and pattern for your home's exterior, and get you on the schedule that same week. No long wait, no excuses.</p>
+<p>From the neighborhoods near Utah Valley University to the quiet streets along the east side, Buzz Co has been curbing Orem yards for years. We're licensed, insured, and committed to making every property look its best.</p>`,
+  },
+  provo: {
+    name: 'Provo',
+    title: 'Concrete Curbing in Provo, UT | Buzz Co',
+    description: 'Decorative concrete curbing for Provo homeowners. 14 colors, 10 patterns, same-week scheduling. Free estimates from Buzz Co Curbing.',
+    h1: 'Concrete Curbing Services in Provo, Utah',
+    copy: `<p>Provo is a city of contrasts — BYU campus energy next to quiet family neighborhoods, downtown revitalization alongside decades-old residential streets, student housing mixed with established homes near Rock Canyon. That variety makes Provo one of the most interesting cities to work in, and Buzz Co Curbing brings decorative concrete curbing that fits every type of property in town.</p>
+<p>The family neighborhoods east of campus and around the Rock Canyon area feature some of Provo's most desirable properties — larger lots, mature landscaping, and mountain views that make every yard feel like a retreat. Our curbing adds the finishing detail these properties deserve: clean borders around flower beds, permanent edging along driveways, and defined transitions between lawn, rock, and garden that look intentional rather than accidental.</p>
+<p>Downtown Provo's revitalization has brought new energy to the surrounding neighborhoods, and homeowners in the area are investing in their properties to match. Whether you're updating a 1950s bungalow near Center Street or finishing the yard on a newer build south of campus, our 14 integral colors and 10 stamp patterns give you options that complement any architectural style — from the brick and stone common in older Provo neighborhoods to the modern exteriors going up in new developments.</p>
+<p>Our process is built for Provo's mix of busy families, professionals, and property investors. Evening estimates, same-week scheduling, and a crew that shows up on time and leaves your yard looking sharp. Justin personally oversees every Provo project to make sure the layout works with your yard's unique contours and landscaping plan.</p>
+<p>From the tree-lined streets near BYU to the growing communities south toward Springville, Buzz Co is proud to serve Provo with the same quality, speed, and attention to detail that's earned us a 4.9-star reputation across Utah.</p>`,
+  },
+  draper: {
+    name: 'Draper',
+    title: 'Concrete Curbing in Draper, UT | Buzz Co',
+    description: 'Decorative concrete curbing for Draper homeowners. 14 colors, 10 patterns, same-week scheduling. Free estimates from Buzz Co Curbing.',
+    h1: 'Concrete Curbing Services in Draper, Utah',
+    copy: `<p>Draper sits at the Point of the Mountain where the Salt Lake and Utah valleys meet, and the homes here reflect the city's upscale character. From the newer communities along Suncrest and Hidden Canyon to the established neighborhoods near Draper Park, this is a city where curb appeal isn't optional — it's expected. Buzz Co Curbing delivers decorative concrete curbing that meets the standard Draper homeowners set for their properties.</p>
+<p>The newer homes going up in Draper's mountain communities come with premium price tags and premium expectations. Buyers expect finished landscaping with clean, professional details, and concrete curbing is the element that separates a good yard from a show-stopping one. Our 14 integral colors include the modern grays, warm taupes, and natural stone tones that complement Draper's contemporary architecture. Pair those with our 10 stamp patterns and you've got curbing that looks like it was part of the original design.</p>
+<p>Established Draper neighborhoods along 13200 South and near the city center feature larger lots with mature trees, deep flower beds, and complex landscaping that benefits from defined borders. Our curbing creates permanent edges that contain rock, separate planting areas, and give your yard the structure that years of organic growth can erode. Tree rings, bed borders, driveway edging, walkway borders — we handle every type of curbing application.</p>
+<p>Draper homeowners value efficiency, and our process delivers. Call or text for a free evening estimate — we know you're busy. We walk your property, recommend the right color and style combination, and get you on the schedule that same week. The Buzz Co crew handles everything from layout to pour to cleanup.</p>
+<p>For a city that sets the bar high on property appearance, you need a curbing crew that delivers at the same level. Buzz Co is licensed, insured, and backed by over 15 years of experience across the Wasatch Front. From Suncrest to Draper Park, we're ready when you are.</p>`,
+  },
+  riverton: {
+    name: 'Riverton',
+    title: 'Concrete Curbing in Riverton, UT | Buzz Co',
+    description: 'Decorative concrete curbing for Riverton homeowners. 14 colors, 10 patterns, same-week scheduling. Free estimates from Buzz Co Curbing.',
+    h1: 'Concrete Curbing Services in Riverton, Utah',
+    copy: `<p>Riverton sits in that sweet spot between Sandy and Draper on the south end of the Salt Lake Valley, and it's become one of the most sought-after family communities in the state. The newer subdivisions west of Redwood Road and the established neighborhoods near Riverton City Park all share one thing — homeowners here care about their yards. Buzz Co Curbing brings decorative concrete curbing that gives Riverton properties the polished, finished look that matches the pride residents take in their homes.</p>
+<p>The growth along the Mountain View Corridor has brought waves of new construction to Riverton over the past decade. Beautiful homes, solid landscaping plans — but most builders stop at sod and a few shrubs. That's where curbing fills the gap. Clean concrete borders around flower beds, defined edging along driveways and walkways, and structured tree rings turn a good yard into one that looks professionally designed from the street.</p>
+<p>We offer 14 integral concrete colors that run through the entire curb — not a surface paint that fades in two seasons. Pair those with our 10 stamp patterns, from natural flagstone to classic brick to sleek modern profiles, and 4 curb styles including the mower-style that Riverton families love because it eliminates the Saturday hand-trimming routine entirely. Your mower wheel rides the edge, and your weekends stay free.</p>
+<p>Our process is built for busy Riverton families. Call or text for a free evening estimate — we come to you after work, walk your property, and help you pick the right color and pattern combination for your home's exterior. Most Riverton installs happen the same week. You leave in the morning with bare dirt edges, and you come home to clean, permanent curbing.</p>
+<p>From the quiet streets near Old Riverton Town to the newer communities along 13400 South and west toward the corridor, Buzz Co is the curbing crew Riverton trusts. Licensed, insured, and backed by over 15 years of experience across the Wasatch Front — we're ready when you are.</p>`,
+  },
+  'american-fork': {
+    name: 'American Fork',
+    title: 'Concrete Curbing in American Fork, UT | Buzz Co',
+    description: 'Decorative concrete curbing for American Fork homeowners. 14 colors, 10 patterns, same-week scheduling. Free estimates from Buzz Co Curbing.',
+    h1: 'Concrete Curbing Services in American Fork, Utah',
+    copy: `<p>American Fork is one of those Utah County cities that perfectly blends small-town character with modern growth. The historic downtown along Main Street has been here for generations, while the newer developments stretching east toward Alpine and the foothills of Mount Timpanogos bring fresh energy to the community every year. Whether you own a classic American Fork home near the city center or a newer build up on the east side, Buzz Co Curbing delivers decorative concrete curbing that elevates your property.</p>
+<p>Drive through AF's established neighborhoods — the tree-lined streets south of Main, the family homes near American Fork Canyon — and you'll notice the difference curbing makes. Yards with clean, permanent borders around planting beds, along walkways, and framing driveways look intentional and well-maintained. Yards without curbing look like the landscaping is still a work in progress. We make sure your property tells the right story.</p>
+<p>Our lineup gives American Fork homeowners real options: 14 integral concrete colors that won't fade or peel, 10 stamp patterns ranging from natural stone to smooth contemporary profiles, and 4 curb styles to fit your yard's layout. The mower-style curb is a favorite here — it lets your mower wheel ride right along the edge, so you can skip the string trimmer and spend your Saturday afternoon up AF Canyon instead.</p>
+<p>We keep things simple and fast. Call or text for a free evening estimate. We walk your yard, recommend the right combination for your home, and give you an honest price on the spot. Most American Fork installs happen the same week — no multi-week wait, no runaround.</p>
+<p>From the neighborhoods near Timpanogos to the growing communities west of I-15, Buzz Co has been curbing Utah County yards for over 15 years. Licensed, insured, and committed to the kind of quality that earns a 4.9-star reputation across the valley.</p>`,
+  },
+  'spanish-fork': {
+    name: 'Spanish Fork',
+    title: 'Concrete Curbing in Spanish Fork, UT | Buzz Co',
+    description: 'Decorative concrete curbing for Spanish Fork homeowners. 14 colors, 10 patterns, same-week scheduling. Free estimates from Buzz Co Curbing.',
+    h1: 'Concrete Curbing Services in Spanish Fork, Utah',
+    copy: `<p>Spanish Fork has grown from its agricultural roots into one of southern Utah County's most vibrant communities, and the mix of older homesteads, mid-century neighborhoods, and brand-new subdivisions gives the city a character all its own. Whether you're updating the landscaping on a property near the Spanish Fork River or finishing the yard on a new build south toward Salem, Buzz Co Curbing delivers decorative concrete curbing that brings structure and polish to every type of Spanish Fork home.</p>
+<p>The established neighborhoods around downtown Spanish Fork and along Canyon Road have mature trees, deep lots, and landscaping that's been growing for decades. Without defined borders, all that beautiful greenery starts to blur together — garden beds blend into lawn, rock spills onto walkways, and mulch migrates where it shouldn't. Our curbing creates permanent, clean edges that contain and define every landscaping element, giving your yard the structure it's been missing.</p>
+<p>Newer Spanish Fork communities south of Main Street and near the Walmart corridor are full of homes with builder-grade landscaping that's begging for an upgrade. Our 14 integral concrete colors, 10 stamp patterns, and 4 curb styles give you the tools to customize your curbing to match your home's exterior — from warm earth tones that complement stucco to modern grays that pair with contemporary siding. The mower-style curb is especially popular with Spanish Fork families who'd rather spend their weekends at Spanish Oaks or up the canyon than hand-trimming edges.</p>
+<p>Evening estimates fit around your schedule — call or text and we'll come walk your property after work. Most Spanish Fork installs happen the same week. You wake up to bare edges and come home to a finished yard.</p>
+<p>From the neighborhoods along the Spanish Fork River to the growing communities near Payson and Salem, Buzz Co serves southern Utah County with the same fast, professional curbing service that's earned us a 4.9-star reputation. Licensed, insured, and over 15 years of experience — we know what works down here.</p>`,
+  },
+  'saratoga-springs': {
+    name: 'Saratoga Springs',
+    title: 'Concrete Curbing in Saratoga Springs, UT | Buzz Co',
+    description: 'Decorative concrete curbing for Saratoga Springs homeowners. 14 colors, 10 patterns, same-week scheduling. Free estimates from Buzz Co Curbing.',
+    h1: 'Concrete Curbing Services in Saratoga Springs, Utah',
+    copy: `<p>Saratoga Springs has been one of the fastest-growing cities in Utah for the past decade, and it's not hard to see why — Utah Lake views, mountain backdrops, newer schools, and a community built for young families. But all that rapid growth means thousands of homes with brand-new landscaping that looks unfinished without proper edging. Buzz Co Curbing helps Saratoga Springs homeowners close the gap between "builder grade" and "this yard is done right."</p>
+<p>Walk through any of Saratoga Springs' master-planned communities — Harvest Hills, Jacobs Ranch, the neighborhoods along Redwood Road — and you'll spot the difference curbing makes instantly. Homes with clean concrete borders around flower beds, along walkways, and framing driveways look complete and intentional. Homes without curbing look like they're still waiting for the next phase of landscaping. Our curbing gives your yard that finished, designed look from the day it's installed.</p>
+<p>The modern architecture going up across Saratoga Springs calls for curbing that complements it. Our 14 integral concrete colors include the contemporary grays, warm sandstones, and clean whites that pair perfectly with the stucco, stone, and fiber cement exteriors common in newer builds here. Choose from 10 stamp patterns and 4 curb styles — the mower-style curb is the top choice among Saratoga Springs families because it lets you skip the string trimmer entirely and spend your free time at the lake instead.</p>
+<p>Our process matches the pace of this city — fast and efficient. Call or text for a free evening estimate. We walk your yard, recommend the right combination for your home, and most Saratoga Springs installs happen the same week. No multi-week scheduling delays, no excuses.</p>
+<p>From the lakeside communities with Utah Lake views to the newer developments pushing west, Buzz Co is the curbing crew that Saratoga Springs homeowners trust. Licensed, insured, and backed by over 15 years of experience across the Wasatch Front — your yard is in good hands.</p>`,
+  },
+  'eagle-mountain': {
+    name: 'Eagle Mountain',
+    title: 'Concrete Curbing in Eagle Mountain, UT | Buzz Co',
+    description: 'Decorative concrete curbing for Eagle Mountain homeowners. 14 colors, 10 patterns, same-week scheduling. Free estimates from Buzz Co Curbing.',
+    h1: 'Concrete Curbing Services in Eagle Mountain, Utah',
+    copy: `<p>Eagle Mountain has earned its reputation as one of the fastest-growing cities in the entire state of Utah, and the numbers don't lie — new subdivisions are going up across Cedar Valley at a pace that's hard to keep up with. That explosive growth means thousands of homes with fresh sod, a few shrubs, and landscaping that looks incomplete without defined edges. Buzz Co Curbing is here to help Eagle Mountain homeowners turn builder-grade yards into something worth coming home to.</p>
+<p>The reality of new construction in Eagle Mountain is that builders do the minimum — they grade the lot, lay sod, and move on to the next house. The curbing, the borders, the finishing details that make a yard look intentional? That's on you. And that's exactly where we come in. Clean concrete borders around flower beds, permanent edging along driveways, defined tree rings, and structured walkway borders transform a yard from "just moved in" to "this homeowner has it together."</p>
+<p>We bring 14 integral concrete colors that run through the entire curb — no surface paint that chips or fades in the Cedar Valley sun. Our 10 stamp patterns range from natural flagstone to clean modern profiles, and our 4 curb styles include the mower-style that Eagle Mountain families love. With lots that tend to be larger out here, the mower-style curb saves serious time — your mower wheel rides the edge, eliminating the hand-trimming that eats up your Saturday mornings.</p>
+<p>Eagle Mountain homeowners are busy — commutes, kids, weekend projects. Our process respects that. Call or text for a free evening estimate. We come out after work, walk your property, and give you an honest price. Most Eagle Mountain installs happen the same week. You head to work and come home to a yard that finally looks finished.</p>
+<p>From the established neighborhoods in the Ranches to the brand-new communities pushing south and west across Cedar Valley, Buzz Co delivers fast, professional curbing backed by over 15 years of experience. Licensed, insured, and trusted across the Wasatch Front — we're ready to make your Eagle Mountain yard stand out.</p>`,
+  },
+};
+
+export function getStaticPaths() {
+  return [
+    { params: { city: 'lehi' }, props: { citySlug: 'lehi' } },
+    { params: { city: 'orem' }, props: { citySlug: 'orem' } },
+    { params: { city: 'provo' }, props: { citySlug: 'provo' } },
+    { params: { city: 'draper' }, props: { citySlug: 'draper' } },
+    { params: { city: 'riverton' }, props: { citySlug: 'riverton' } },
+    { params: { city: 'american-fork' }, props: { citySlug: 'american-fork' } },
+    { params: { city: 'spanish-fork' }, props: { citySlug: 'spanish-fork' } },
+    { params: { city: 'saratoga-springs' }, props: { citySlug: 'saratoga-springs' } },
+    { params: { city: 'eagle-mountain' }, props: { citySlug: 'eagle-mountain' } },
+  ];
+}
+
+const { citySlug } = Astro.props;
+const city = cityContent[citySlug];
+const neighboringCities = loc.priorityCities.filter(c => c !== city.name);
+
+const localBusinessSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'HomeAndConstructionBusiness',
+  name: `Buzz Co Curbing — ${city.name}`,
+  description: city.description,
+  url: `https://www.buzzcocurb.com/south/areas/${citySlug}/`,
+  telephone: loc.phone,
+  email: loc.email,
+  areaServed: {
+    '@type': 'City',
+    name: city.name,
+    containedInPlace: { '@type': 'State', name: 'Utah' },
+  },
+  openingHoursSpecification: loc.hoursSpec.map(h => ({
+    '@type': 'OpeningHoursSpecification',
+    dayOfWeek: h.dayOfWeek,
+    opens: h.opens,
+    closes: h.closes,
+  })),
+  aggregateRating: {
+    '@type': 'AggregateRating',
+    ratingValue: '4.9',
+    reviewCount: '50',
+    bestRating: '5',
+  },
+};
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.buzzcocurb.com/' },
+    { '@type': 'ListItem', position: 2, name: 'South Territory', item: 'https://www.buzzcocurb.com/south/' },
+    { '@type': 'ListItem', position: 3, name: city.name, item: `https://www.buzzcocurb.com/south/areas/${citySlug}/` },
+  ],
+};
+---
+
+<BaseLayout
+  title={city.title}
+  description={city.description}
+  canonical={`https://www.buzzcocurb.com/south/areas/${citySlug}/`}
+  geoPlacename={city.name}
+  locationId={loc.id}
+  phone={loc.phone}
+  phoneHref={loc.phoneHref}
+  schema={[localBusinessSchema, breadcrumbSchema]}
+>
+  <!-- Breadcrumb -->
+  <section class="pt-28 md:pt-36 bg-warm-white">
+    <div class="max-w-6xl mx-auto px-6 md:px-8">
+      <nav aria-label="Breadcrumb">
+        <ol class="flex items-center gap-2 font-data text-xs uppercase tracking-widest text-warm-muted">
+          <li><a href="/" class="hover:text-accent transition-colors">Home</a></li>
+          <li aria-hidden="true">/</li>
+          <li><a href="/south/" class="hover:text-accent transition-colors">South</a></li>
+          <li aria-hidden="true">/</li>
+          <li class="text-dark">{city.name}</li>
+        </ol>
+      </nav>
+    </div>
+  </section>
+
+  <!-- Hero Content -->
+  <section class="pb-16 md:pb-24 bg-warm-white">
+    <div class="max-w-6xl mx-auto px-6 md:px-8">
+      <h1 class="font-heading text-3xl md:text-5xl font-bold text-dark mt-6 mb-8 text-balance">{city.h1}</h1>
+      <div class="max-w-3xl font-body text-base md:text-lg text-dark/70 leading-relaxed space-y-4" set:html={city.copy} />
+    </div>
+  </section>
+
+  <!-- Trust Signals -->
+  <section class="py-20 md:py-32 bg-warm-gray border-y border-dark/[0.06]">
+    <div class="max-w-6xl mx-auto px-6 md:px-8">
+      <div class="flex flex-wrap items-center justify-center gap-8 md:gap-14">
+        <div class="flex items-center gap-2">
+          <svg class="w-5 h-5 text-gold" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+          <span class="font-data text-sm text-dark/70">4.9-Star Rating</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <svg class="w-5 h-5 text-accent" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.745 3.745 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0112 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 013.296 1.043 3.745 3.745 0 011.043 3.296A3.745 3.745 0 0121 12z"></path></svg>
+          <span class="font-data text-sm text-dark/70">15+ Years Experience</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <svg class="w-5 h-5 text-accent" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"></path></svg>
+          <span class="font-data text-sm text-dark/70">Licensed & Insured</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Grid -->
+  <section class="py-20 md:py-28 bg-warm-white">
+    <div class="max-w-6xl mx-auto px-6 md:px-8">
+      <p class="section-label mb-4">WHAT WE OFFER</p>
+      <h2 class="font-heading text-2xl md:text-4xl font-bold text-dark mb-4">Curbing Services Available in {city.name}</h2>
+      <p class="font-body text-dark/60 max-w-2xl mb-12">Every service below is available to {city.name} homeowners with same-week scheduling and a free on-site estimate.</p>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {services.map(service => (
+          <a href={`/services/${service.slug}/`} class="group bg-warm-gray border border-dark/[0.06] rounded-card p-8 transition-all duration-300 hover:shadow-lg hover:shadow-dark/[0.06] hover:-translate-y-1">
+            <p class="font-data text-xs uppercase tracking-widest text-accent mb-3">{service.shortName}</p>
+            <h3 class="font-heading font-semibold text-lg text-dark mb-3 group-hover:text-accent transition-colors">{service.name}</h3>
+            <p class="font-body text-sm text-dark/60 leading-relaxed">{service.description}</p>
+            <p class="font-heading font-medium text-sm text-accent mt-4 flex items-center gap-1">
+              Learn more <span class="transition-transform duration-300 group-hover:translate-x-1">→</span>
+            </p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Service Area / Neighboring Cities -->
+  <section class="py-20 md:py-32 bg-warm-gray border-y border-dark/[0.06]">
+    <div class="max-w-6xl mx-auto px-6 md:px-8 text-center">
+      <p class="section-label mb-4">SOUTH UTAH SERVICE AREA</p>
+      <h2 class="font-heading text-2xl md:text-3xl font-bold text-dark mb-4">Also Serving Nearby Communities</h2>
+      <p class="font-body text-dark/60 max-w-2xl mx-auto mb-8">
+        Beyond {city.name}, Buzz Co Curbing serves homeowners from Draper to Provo and beyond including {neighboringCities.join(', ')}, and many more.
+      </p>
+      <div class="flex flex-wrap justify-center gap-3">
+        {loc.cities.map(c => {
+          const slug = c.toLowerCase().replace(/\s+/g, '-');
+          const isPriority = loc.priorityCities.includes(c);
+          const isCurrent = c === city.name;
+          return isCurrent ? (
+            <span class="rounded-none px-4 py-2 text-sm font-heading font-medium bg-accent text-white">{c}</span>
+          ) : isPriority ? (
+            <a href={`/south/areas/${slug}/`} class="rounded-none px-4 py-2 text-sm font-heading font-medium bg-gold/20 text-dark border border-gold/30 hover:bg-gold/30 transition-colors">{c}</a>
+          ) : (
+            <span class="rounded-none px-4 py-2 text-sm font-heading font-medium bg-warm-white text-dark/60 border border-dark/[0.08]">{c}</span>
+          );
+        })}
+      </div>
+      <p class="font-body text-sm text-dark/50 mt-6">
+        <a href="/south/" class="hover:text-accent transition-colors underline underline-offset-2">← Back to South Territory</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-20 md:py-28 bg-dark rounded-card mx-4 md:mx-8 my-12">
+    <div class="max-w-3xl mx-auto px-6 md:px-8 text-center">
+      <p class="font-data text-xs uppercase tracking-widest text-gold/70 mb-4">FREE ESTIMATE</p>
+      <h2 class="font-heading text-3xl md:text-5xl font-bold text-white mb-6">Ready to Transform Your {city.name} Yard?</h2>
+      <p class="font-body text-lg text-white/60 mb-8 max-w-xl mx-auto">
+        Call for an evening quote, and we'll have your curbing installed as soon as tomorrow. 14 colors, 10 patterns, zero hassle.
+      </p>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a href={`/${loc.id}/get-estimate/`} class="btn-primary">
+          <span class="btn-bg" aria-hidden="true"></span>
+          <span class="btn-text">Get a Free Estimate</span>
+        </a>
+        <a href={loc.phoneHref} class="inline-flex items-center gap-2 font-heading font-medium text-white/80 hover:text-gold transition-colors">
+          <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"></path></svg>
+          {loc.phone}
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

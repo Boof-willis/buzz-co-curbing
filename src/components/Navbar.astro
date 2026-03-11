@@ -1,0 +1,143 @@
+---
+interface Props {
+  locationId: string;
+  phone: string;
+  phoneHref: string;
+  showFaq?: boolean;
+}
+
+const { locationId, phone, phoneHref, showFaq = false } = Astro.props;
+const estimateUrl = `/${locationId}/get-estimate/`;
+---
+
+<nav
+  id="navbar"
+  class="fixed top-0 left-0 z-[70] w-full border-b border-transparent bg-transparent backdrop-blur-none transition-all duration-300"
+  aria-label="Main navigation"
+>
+  <div class="mx-auto flex w-full max-w-7xl items-center justify-between px-6 py-4 md:px-8">
+  <!-- Logo -->
+  <a
+      href="/"
+      data-nav-logo
+      class="relative transition-opacity duration-300 hover:opacity-80 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
+      aria-label="Buzz Co Curbing — Home"
+    >
+      <img src="/images/logo-full-dark.svg" alt="Buzz Co Curbing" class="h-8 md:h-12 w-auto transition-opacity duration-300" data-logo-dark />
+      <img src="/images/logo-full.svg" alt="Buzz Co Curbing" class="h-8 md:h-12 w-auto absolute left-0 top-0 opacity-0 transition-opacity duration-300" data-logo-light />
+    </a>
+
+    <!-- Desktop nav links + CTA -->
+    <div class="hidden items-center gap-8 md:flex">
+      <a
+        href="/services/"
+        data-nav-link
+        class="font-body text-sm font-medium text-dark transition-colors duration-300 hover:text-accent focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 rounded-none"
+      >
+        Services
+      </a>
+      <a
+        href="/process/"
+        data-nav-link
+        class="font-body text-sm font-medium text-dark transition-colors duration-300 hover:text-accent focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 rounded-none"
+      >
+        Process
+      </a>
+      <a
+        href="/about/"
+        data-nav-link
+        class="font-body text-sm font-medium text-dark transition-colors duration-300 hover:text-accent focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 rounded-none"
+      >
+        About
+      </a>
+      {showFaq && (
+        <a
+          href="#faq"
+          data-nav-link
+          class="font-body text-sm font-medium text-dark transition-colors duration-300 hover:text-accent focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 rounded-none"
+        >
+          FAQ
+        </a>
+      )}
+      <a
+        href={estimateUrl}
+        class="btn-primary"
+        data-estimate-href
+      >
+        Get a Free Estimate
+      </a>
+    </div>
+
+    <!-- Mobile: Hamburger -->
+    <div class="flex items-center md:hidden">
+      <button
+        id="nav-hamburger"
+        type="button"
+        class="group relative flex h-11 w-11 items-center justify-center rounded-none text-dark transition-colors hover:bg-dark/5 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 z-[70]"
+        aria-label="Open menu"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+      >
+        <span class="absolute h-[2px] w-5 rounded-none bg-current transition-all duration-300 ease-out -translate-y-[6px] group-[.is-open]:translate-y-0 group-[.is-open]:rotate-45" aria-hidden="true"></span>
+        <span class="absolute h-[2px] w-5 rounded-none bg-current transition-all duration-300 ease-out group-[.is-open]:opacity-0" aria-hidden="true"></span>
+        <span class="absolute h-[2px] w-5 rounded-none bg-current transition-all duration-300 ease-out translate-y-[6px] group-[.is-open]:translate-y-0 group-[.is-open]:-rotate-45" aria-hidden="true"></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile menu overlay -->
+<div
+  id="mobile-menu"
+  class="group fixed inset-0 z-[60] bg-dark/95 backdrop-blur-xl transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] opacity-0 pointer-events-none [&.is-open]:opacity-100 [&.is-open]:pointer-events-auto"
+  aria-hidden="true"
+  aria-label="Mobile menu"
+>
+  <div class="flex min-h-full flex-col px-6 pt-28 pb-12 transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] translate-y-8 group-[.is-open]:translate-y-0">
+    <nav class="flex flex-1 flex-col gap-1 mt-8" aria-label="Mobile navigation">
+      <a
+        href="/services/"
+        class="font-body py-4 text-3xl font-medium text-white transition-all duration-500 hover:text-gold focus:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-inset rounded-none opacity-0 translate-y-4 group-[.is-open]:opacity-100 group-[.is-open]:translate-y-0 group-[.is-open]:delay-[100ms]"
+      >
+        Services
+      </a>
+      <a
+        href="/process/"
+        class="font-body py-4 text-3xl font-medium text-white transition-all duration-500 hover:text-gold focus:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-inset rounded-none opacity-0 translate-y-4 group-[.is-open]:opacity-100 group-[.is-open]:translate-y-0 group-[.is-open]:delay-[150ms]"
+      >
+        Process
+      </a>
+      <a
+        href="/about/"
+        class="font-body py-4 text-3xl font-medium text-white transition-all duration-500 hover:text-gold focus:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-inset rounded-none opacity-0 translate-y-4 group-[.is-open]:opacity-100 group-[.is-open]:translate-y-0 group-[.is-open]:delay-[200ms]"
+      >
+        About
+      </a>
+      {showFaq && (
+        <a
+          href="#faq"
+          class="font-body py-4 text-3xl font-medium text-white transition-all duration-500 hover:text-gold focus:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-inset rounded-none opacity-0 translate-y-4 group-[.is-open]:opacity-100 group-[.is-open]:translate-y-0 group-[.is-open]:delay-[250ms]"
+        >
+          FAQ
+        </a>
+      )}
+      <a
+        href={phoneHref}
+        data-phone-href
+        class="font-data mt-8 py-4 text-xl font-medium text-gold transition-all duration-500 hover:text-gold/80 focus:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-inset rounded-none opacity-0 translate-y-4 group-[.is-open]:opacity-100 group-[.is-open]:translate-y-0 group-[.is-open]:delay-[300ms]"
+      >
+        <span data-phone-display>{phone}</span>
+      </a>
+    </nav>
+
+    <div class="mt-auto pt-8 opacity-0 translate-y-4 transition-all duration-500 group-[.is-open]:opacity-100 group-[.is-open]:translate-y-0 group-[.is-open]:delay-[350ms]">
+      <a
+        href={estimateUrl}
+        class="btn-primary w-full justify-center py-4 text-lg"
+        data-estimate-href
+      >
+        Get a Free Estimate
+      </a>
+    </div>
+  </div>
+</div>

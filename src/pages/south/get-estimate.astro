@@ -1,0 +1,29 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import GetStarted from '../../components/GetStarted.astro';
+import locationsData from '../../data/locations.json';
+
+const loc = locationsData.locations.find(l => l.id === 'south');
+---
+
+<BaseLayout
+  title="Get a Free Estimate — Lehi/Provo | Buzz Co Curbing"
+  description="Request your free concrete curbing estimate in Utah Valley — Lehi, Provo, Orem, and beyond. On-site quotes with same-week scheduling. No pressure, no commitment."
+  locationId="south"
+  phone={loc.phone}
+  phoneHref={loc.phoneHref}
+  geoPlacename="Lehi"
+>
+  <section class="pt-32 pb-20 md:pt-40 md:pb-32 bg-warm-white">
+    <div class="max-w-6xl mx-auto px-6 md:px-8">
+      <p class="font-data text-xs uppercase tracking-[0.2em] text-warm-muted mb-4">FREE ESTIMATE</p>
+      <h1 class="font-heading text-section-heading font-bold text-dark mb-6">Get Your Free Curbing Estimate in Utah Valley</h1>
+      <p class="font-body text-lg text-dark/60 max-w-2xl mb-12">Fill out the form below and we'll call you back — usually within a few hours — to schedule a walkthrough at your property.</p>
+    </div>
+    <GetStarted
+      locationId="south"
+      phone={loc.phone}
+      phoneHref={loc.phoneHref}
+    />
+  </section>
+</BaseLayout>

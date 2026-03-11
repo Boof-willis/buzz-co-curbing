@@ -1,0 +1,84 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+    color: #1a1a1a;
+    background-color: #fafaf7;
+  }
+
+  ::selection {
+    background-color: #fcc33c;
+    color: #1a1a1a;
+  }
+
+  :focus-visible {
+    outline: 2px solid #d4a012;
+    outline-offset: 2px;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply relative inline-flex items-center justify-center overflow-hidden rounded-none bg-gold px-8 py-4 font-heading font-semibold text-dark transition-all duration-500 hover:scale-[1.03] hover:text-white z-10;
+    transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  .btn-primary::before {
+    content: '';
+    @apply absolute inset-0 translate-y-full bg-dark transition-transform duration-500 -z-10;
+    transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  .btn-primary:hover::before {
+    @apply translate-y-0;
+  }
+
+  /* Optional: handle if spans are already inside */
+  .btn-primary > .btn-bg {
+    @apply hidden;
+  }
+
+  .btn-primary > .btn-text {
+    @apply relative z-10 transition-colors duration-500;
+  }
+
+  .btn-primary:hover > .btn-text {
+    @apply text-white;
+  }
+
+  .btn-secondary {
+    @apply relative inline-flex items-center gap-2 font-heading font-medium text-dark transition-transform duration-300 hover:-translate-y-0.5;
+  }
+
+  .section-label {
+    @apply font-data text-hero-label uppercase tracking-widest text-warm-muted;
+  }
+
+  .link-hover {
+    @apply transition-all duration-300 hover:-translate-y-px;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+}

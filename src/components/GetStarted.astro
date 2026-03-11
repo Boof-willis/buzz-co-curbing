@@ -1,0 +1,99 @@
+---
+import EstimateSurvey from './EstimateSurvey';
+
+interface Props {
+  locationId: string;
+  phone: string;
+  phoneHref: string;
+  testimonial?: { name: string; text: string; rating?: number };
+}
+
+const { locationId, phone, phoneHref, testimonial } = Astro.props;
+
+const firstTestimonial =
+  testimonial ||
+  {
+    name: "Annie V.",
+    text: "Buzz did such a great job on our curbing. I called him and he was even able to squeeze me in the next day. The curbing gives our yard a much more polished look... Highly recommend.",
+    rating: 5,
+  };
+---
+
+<section class="bg-warm-gray py-20 md:py-32" id="get-started" aria-label="Get your free estimate">
+  <div class="mx-auto max-w-6xl px-6 md:px-8">
+    <p class="section-label mb-4">GET STARTED</p>
+    <h2 class="font-heading text-section-heading font-bold text-dark mb-12">
+      Get Your Free Estimate
+    </h2>
+
+    <div class="grid items-start gap-12 md:grid-cols-2">
+      <!-- Left: Multi-Step Survey -->
+      <div class="space-y-6">
+        <div
+          class="rounded-none border border-dark/[0.06] bg-white p-8 shadow-lg shadow-dark/[0.03] md:p-10"
+        >
+          <EstimateSurvey client:load locationId={locationId} />
+        </div>
+
+        <!-- Micro-testimonial + star rating -->
+        <div class="flex flex-col gap-2">
+          <div class="flex gap-1 text-gold" aria-label="4.9 on Google">
+            <span aria-hidden="true">★★★★★</span>
+          </div>
+          <p class="font-body text-sm text-dark/70 italic">
+            "{firstTestimonial.text}"
+          </p>
+          <p class="font-data text-xs uppercase tracking-widest text-dark/50">
+            — {firstTestimonial.name}
+          </p>
+          <p class="font-data text-xs text-gold font-medium">4.9 on Google</p>
+        </div>
+      </div>
+
+      <!-- Right: What Happens Next -->
+      <div>
+        <h3 class="font-heading mb-8 text-xl font-bold text-dark">
+          What Happens After You Reach Out
+        </h3>
+
+        <div class="space-y-8">
+          <div>
+            <span class="font-data mb-1 block text-sm font-bold text-gold">01</span>
+            <h4 class="font-heading font-semibold text-dark mb-1">Submit Your Info</h4>
+            <p class="font-body text-sm text-dark/60">
+              Fill out the quick survey or give us a call. We respond to every inquiry — usually within a few hours.
+            </p>
+          </div>
+          <div>
+            <span class="font-data mb-1 block text-sm font-bold text-gold">02</span>
+            <h4 class="font-heading font-semibold text-dark mb-1">On-Site Walkthrough</h4>
+            <p class="font-body text-sm text-dark/60">
+              We schedule a visit so both homeowners can be there. We walk the yard, design the layout together, and quote on the spot.
+            </p>
+          </div>
+          <div>
+            <span class="font-data mb-1 block text-sm font-bold text-gold">03</span>
+            <h4 class="font-heading font-semibold text-dark mb-1">Professional Installation</h4>
+            <p class="font-body text-sm text-dark/60">
+              Our crew handles everything — prep, pour, cleanup. Your yard transformed with zero hassle.
+            </p>
+          </div>
+        </div>
+
+        <!-- Trust signals -->
+        <div class="mt-12 flex flex-wrap gap-4">
+          <span
+            class="font-data inline-flex items-center gap-2 rounded-none border border-dark/10 bg-white px-4 py-2 text-xs uppercase tracking-widest text-dark/70"
+          >
+            Licensed & Insured
+          </span>
+          <span
+            class="font-data inline-flex items-center gap-2 rounded-none border border-dark/10 bg-white px-4 py-2 text-xs uppercase tracking-widest text-dark/70"
+          >
+            Free Estimates, No Pressure
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

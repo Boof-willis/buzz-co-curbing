@@ -1,0 +1,164 @@
+{
+  "locations": [
+    {
+      "id": "logan",
+      "name": "Buzz Co Logan",
+      "label": "Cache Valley / Logan",
+      "territory": "Logan Territory",
+      "city": "Logan",
+      "state": "Utah",
+      "stateCode": "UT",
+      "tagline": "Premium decorative concrete curbing for Cache Valley homeowners",
+      "phone": "(435) 557-3648",
+      "phoneHref": "tel:+14355573648",
+      "email": "buzzcocurb@gmail.com",
+      "address": "Nibley, UT 84321",
+      "addressType": "serviceArea",
+      "operators": ["Justin Anderson"],
+      "ghlSurveyFormId": "4LTCj3Cr2VozK8cuuejQ",
+      "hours": "Monday–Saturday: 9 AM – 5 PM",
+      "hoursClosed": "Sunday",
+      "hoursSpec": [
+        { "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"], "opens": "09:00", "closes": "17:00" }
+      ],
+      "cities": ["Logan", "Smithfield", "Hyde Park", "Providence", "Nibley", "North Logan", "Wellsville", "Hyrum", "Richmond", "Mendon", "Millville", "River Heights", "Paradise", "Lewiston", "Clarkston", "Cornish", "Trenton", "Amalga", "Newton", "Avon"],
+      "priorityCities": ["Logan", "Smithfield", "Hyde Park", "Providence"],
+      "coordinates": { "lat": 41.7370, "lng": -111.8338 },
+      "testimonials": [
+        {
+          "name": "Annie V.",
+          "city": "Logan",
+          "rating": 5,
+          "text": "Buzz did such a great job on our curbing. I called him and he was even able to squeeze me in the next day. The curbing gives our yard a much more polished look and I'm so glad we had Buzz come do it because he was fair and did a fantastic job. Highly recommend."
+        },
+        {
+          "name": "Morgan C.",
+          "city": "Logan",
+          "rating": 5,
+          "text": "Justin and his crew were absolutely amazing! I got quotes from around 7 curbing companies and Justin was by far the friendliest, most responsive, and the fairest pricing. He communicated the whole time and was right on time and went through it with us before starting. He had so much knowledge about what would look good and made recommendations without ever making us feel pressured, but genuinely cared about what would look best. Our yard looks 100% better because of his expertise and perfectionism. We could not recommend him enough!"
+        },
+        {
+          "name": "Adam B.",
+          "city": "Logan",
+          "rating": 5,
+          "text": "Justin and his crew were fast and professional. We had general ideas of what we wanted and he was able to quickly help us refine our ideas and suggest changes that really helped our curbs look great!"
+        },
+        {
+          "name": "Colter L.",
+          "city": "Logan",
+          "rating": 5,
+          "text": "We have used Buzz multiple times and every time they show up on time with a smile ready to get our job done. Their quality is amazing. They are perfectionists. Concrete is a work of art and they know how to do it right. If you want someone who knows what they are doing, you want these guys! Thanks for making our curbing look so good!"
+        },
+        {
+          "name": "Heather M.",
+          "city": "Logan",
+          "rating": 5,
+          "text": "We really liked working with Buzz! He was great to work with — responded in a timely manner and took pride in his work. We are so happy with how our front yard turned out and will for sure call him when we are ready for curbing in the back. Thanks Buzz!"
+        },
+        {
+          "name": "Lorinda L.",
+          "city": "Logan",
+          "rating": 5,
+          "text": "Buzz and crew did a great job on our curbing. Buzz was very responsive to all my questions. He was able to get the job done quickly. Pricing is competitive. Quality of work is fantastic!"
+        }
+      ]
+    },
+    {
+      "id": "central",
+      "name": "Buzz Co Central",
+      "label": "Brigham City to Sandy",
+      "territory": "Central Territory",
+      "city": "Salt Lake City",
+      "state": "Utah",
+      "stateCode": "UT",
+      "tagline": "Premium decorative concrete curbing from Brigham City to Sandy",
+      "phone": "(385) 365-2121",
+      "phoneHref": "tel:+13853652121",
+      "email": "Buzzcocentral@gmail.com",
+      "address": "Service Area Business",
+      "addressType": "serviceArea",
+      "operators": ["Trevor Nuttall", "Brock Smedley", "Kyle Marston"],
+      "ghlSurveyFormId": "PLACEHOLDER_CENTRAL_SURVEY_FORM_ID",
+      "hours": "Monday–Saturday: 9 AM – 5 PM",
+      "hoursClosed": "Sunday",
+      "hoursSpec": [
+        { "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"], "opens": "09:00", "closes": "17:00" }
+      ],
+      "cities": ["Brigham City", "Perry", "Willard", "Mantua", "Honeyville", "Deweyville", "Tremonton", "Garland", "Bear River City", "North Ogden", "Ogden", "South Ogden", "Roy", "Clearfield", "Layton", "Kaysville", "Farmington", "Centerville", "Bountiful", "North Salt Lake", "Woods Cross", "West Bountiful", "Clinton", "Sunset", "Syracuse", "West Point", "Pleasant View", "Riverdale", "Washington Terrace", "Harrisville", "Fruit Heights", "Salt Lake City", "West Valley City", "West Jordan", "Kearns", "Taylorsville", "Murray", "Magna", "Millcreek", "Holladay", "South Salt Lake", "Cottonwood Heights", "South Jordan", "Sandy"],
+      "priorityCities": ["Salt Lake City", "Sandy", "Ogden", "Layton", "Bountiful", "Brigham City"],
+      "coordinates": { "lat": 41.2230, "lng": -111.9738 },
+      "testimonials": [
+        {
+          "name": "David R.",
+          "city": "Ogden",
+          "rating": 5,
+          "text": "Buzz Co did an incredible job on our front yard curbing. The crew was on time, professional, and the finished product looks amazing against our new landscaping. Highly recommend for anyone in the Ogden area.",
+          "placeholder": true
+        },
+        {
+          "name": "Sarah K.",
+          "city": "Layton",
+          "rating": 5,
+          "text": "We had curbing installed around our entire property and couldn't be happier. The team was knowledgeable, fast, and left everything clean. The stamped pattern we chose looks like real stone. Great value for the quality.",
+          "placeholder": true
+        },
+        {
+          "name": "Mike T.",
+          "city": "Bountiful",
+          "rating": 5,
+          "text": "From the initial estimate to the finished install, everything was smooth. The operator walked the yard with us and helped us pick a style that matched our home perfectly. Two thumbs up.",
+          "placeholder": true
+        }
+      ]
+    },
+    {
+      "id": "south",
+      "name": "Buzz Co South",
+      "label": "Draper to Provo",
+      "territory": "South Territory",
+      "city": "Lehi",
+      "state": "Utah",
+      "stateCode": "UT",
+      "tagline": "Premium decorative concrete curbing from Draper to Provo and beyond",
+      "phone": "(385) 533-6525",
+      "phoneHref": "tel:+13855336525",
+      "email": "Buzzco.south@gmail.com",
+      "address": "Service Area Business",
+      "addressType": "serviceArea",
+      "operators": ["Chad Knebel"],
+      "ghlSurveyFormId": "PLACEHOLDER_SOUTH_SURVEY_FORM_ID",
+      "hours": "Monday–Saturday: 9 AM – 5 PM",
+      "hoursClosed": "Sunday",
+      "hoursSpec": [
+        { "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"], "opens": "09:00", "closes": "17:00" }
+      ],
+      "cities": ["Riverton", "Draper", "Alpine", "Highland", "Lehi", "Saratoga Springs", "American Fork", "Pleasant Grove", "Cedar Hills", "Lindon", "Orem", "Provo", "Vineyard", "Eagle Mountain", "Springville", "Mapleton", "Spanish Fork", "Salem", "Payson", "Santaquin", "Elk Ridge", "Woodland Hills", "Herriman", "Bluffdale"],
+      "priorityCities": ["Draper", "Lehi", "Orem", "Provo", "American Fork", "Riverton"],
+      "coordinates": { "lat": 40.3916, "lng": -111.8508 }  ,
+      "testimonials": [
+        {
+          "name": "Jennifer P.",
+          "city": "Lehi",
+          "rating": 5,
+          "text": "Just had our curbing done and the transformation is unreal. Our neighbors keep stopping to ask who did it. The Buzz Co team was professional, quick, and the color matching is spot-on with our home's exterior.",
+          "placeholder": true
+        },
+        {
+          "name": "Brandon S.",
+          "city": "Orem",
+          "rating": 5,
+          "text": "We were finishing up our new build landscaping and needed curbing fast. Buzz Co got us quoted and installed within two days. The mower-style curb looks sharp and makes edging so much easier. Really impressed.",
+          "placeholder": true
+        },
+        {
+          "name": "Lisa M.",
+          "city": "Provo",
+          "rating": 5,
+          "text": "Buzz Co transformed our flower beds with beautiful stamped curbing. The crew was respectful of our property and cleaned up perfectly. We're already planning to have them do the backyard next spring.",
+          "placeholder": true
+        }
+      ]
+    }
+  ],
+  "defaultLocation": "logan"
+}

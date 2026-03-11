@@ -1,0 +1,98 @@
+---
+import Head from '../components/Head.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+import FloatingMobileCTA from '../components/FloatingMobileCTA.astro';
+import NoiseOverlay from '../components/NoiseOverlay.astro';
+import NavbarIsland from '../components/NavbarIsland.jsx';
+import HeroAnimations from '../components/HeroAnimations.jsx';
+import FAQAccordion from '../components/FAQAccordion.jsx';
+import PhoneGeoSwap from '../components/PhoneGeoSwap.jsx';
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description: string;
+  canonical?: string;
+  ogImage?: string;
+  geoRegion?: string;
+  geoPlacename?: string;
+  schema?: object | object[];
+  noindex?: boolean;
+  locationId?: string;
+  phone?: string;
+  phoneHref?: string;
+  showFaq?: boolean;
+}
+
+const {
+  title,
+  description,
+  canonical,
+  ogImage,
+  geoRegion,
+  geoPlacename,
+  schema,
+  noindex,
+  locationId = 'logan',
+  phone = '(435) 557-3648',
+  phoneHref = 'tel:+14355573648',
+  showFaq = false,
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <Head
+      title={title}
+      description={description}
+      canonical={canonical}
+      ogImage={ogImage}
+      geoRegion={geoRegion}
+      geoPlacename={geoPlacename}
+      schema={schema}
+      noindex={noindex}
+    />
+
+    <!-- UTM Capture -->
+    <script is:inline>
+      (function () {
+        try {
+          var params = new URLSearchParams(window.location.search);
+          var utmKeys = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term', 'gclid', 'fbclid'];
+          utmKeys.forEach(function (key) {
+            var val = params.get(key);
+            if (val) sessionStorage.setItem(key, val);
+          });
+          if (!sessionStorage.getItem('referrer')) {
+            sessionStorage.setItem('referrer', document.referrer || 'direct');
+          }
+          if (!sessionStorage.getItem('landing_page')) {
+            sessionStorage.setItem('landing_page', window.location.pathname);
+          }
+        } catch (e) {}
+      })();
+    </script>
+  </head>
+  <body class="bg-warm-white text-dark antialiased">
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:rounded-pill focus:bg-gold focus:px-6 focus:py-3 focus:font-heading focus:font-semibold focus:text-dark">
+      Skip to content
+    </a>
+
+    <Navbar locationId={locationId} phone={phone} phoneHref={phoneHref} showFaq={showFaq} />
+    <NavbarIsland client:idle />
+
+    <main id="main-content">
+      <slot />
+    </main>
+
+    <Footer locationId={locationId} phone={phone} phoneHref={phoneHref} />
+    <FloatingMobileCTA phone={phone} phoneHref={phoneHref} locationId={locationId} />
+    <PhoneGeoSwap client:idle />
+    <HeroAnimations client:visible />
+    <FAQAccordion client:visible />
+    <NoiseOverlay />
+
+  </body>
+</html>

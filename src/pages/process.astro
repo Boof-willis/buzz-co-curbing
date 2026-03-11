@@ -1,0 +1,238 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const curbStyles = [
+  {
+    name: 'Block Style',
+    description: 'A classic squared-off profile. Clean lines, solid presence. The most popular choice for flower beds and garden borders.',
+    icon: '/images/SVG/Block.svg',
+  },
+  {
+    name: 'Slant/Wedge Style',
+    description: 'An angled profile that sheds water naturally. Great for areas where drainage matters — driveways, downspout zones, and slopes.',
+    icon: '/images/SVG/Slant.svg',
+  },
+  {
+    name: 'Mower Style',
+    description: 'A low-profile, rounded-top design that lets your mower wheel ride right along the edge. No more hand-trimming along curb lines.',
+    icon: '/images/SVG/Mower.svg',
+  },
+  {
+    name: 'Straight-Line Style',
+    description: 'A flat, minimal profile that disappears into the landscape. Ideal for modern homes and minimalist yard designs.',
+    icon: '/images/SVG/Straight.svg',
+  },
+];
+
+const colors = [
+  { name: 'Clay', hex: '#744538' },
+  { name: 'Brick Red', hex: '#6d4b41' },
+  { name: 'Light Plum', hex: '#654e48' },
+  { name: 'Ginger', hex: '#8d8262' },
+  { name: 'Desert Tan', hex: '#8e7c69' },
+  { name: 'Salmon', hex: '#876c50' },
+  { name: 'Doeskin', hex: '#85704f' },
+  { name: 'Rawhide', hex: '#665b4c' },
+  { name: 'Lava', hex: '#5a564f' },
+  { name: 'Sahara', hex: '#776653' },
+  { name: 'Merlot', hex: '#5c5046' },
+  { name: 'Slate', hex: '#5d5e56' },
+  { name: 'Smoke', hex: '#5c5c5a' },
+  { name: 'Onyx', hex: '#494949' },
+];
+
+const stampPatterns = [
+  { name: 'Ashlar', image: '/images/patterns/ashlar.webp' },
+  { name: 'Brick', image: '/images/patterns/brick.webp' },
+  { name: 'Cobblestone', image: '/images/patterns/cobblestone.webp' },
+  { name: 'Lava', image: '/images/patterns/lava.webp' },
+  { name: 'Flagstone / Random Slate', image: '/images/patterns/flagstone.webp' },
+  { name: 'River Rock', image: '/images/patterns/river-rock.webp' },
+  { name: 'Slate', image: '/images/patterns/slate.webp' },
+  { name: 'Weathered Wood Grain', image: '/images/patterns/wood-grain.webp' },
+  { name: 'Basketweave', image: '/images/patterns/basketweave.webp' },
+  { name: 'Herringbone', image: '/images/patterns/herringbone.webp' },
+];
+
+const processSteps = [
+  {
+    num: '01',
+    title: 'Design Together',
+    description: 'We visit your property in the evening, walk the yard with you, and plan the layout on the spot. You pick colors and patterns from our samples.',
+  },
+  {
+    num: '02',
+    title: 'Prep & Pour',
+    description: 'The next morning, our crew preps the area — clearing debris, leveling the base, and setting string lines. Then we extrude the curbing with precision.',
+  },
+  {
+    num: '03',
+    title: 'Stamp & Finish',
+    description: 'While the concrete is still workable, we stamp your chosen pattern and apply color treatment. Most jobs are done by afternoon.',
+  },
+];
+---
+
+<BaseLayout
+  title="Our Curbing Process — Styles, Colors & Patterns | Buzz Co"
+  description="Explore 14 concrete curbing colors, 10 stamp patterns, and 4 curb styles. See how Buzz Co designs and installs decorative curbing in one day."
+>
+  <!-- Page header -->
+  <section class="pt-32 pb-16 md:pt-40 md:pb-20 bg-warm-white">
+    <div class="max-w-6xl mx-auto px-6 md:px-8">
+      <p class="section-label mb-4">OUR PROCESS</p>
+      <h1 class="font-heading text-section-heading font-bold text-dark mb-6">How We Build Your Curbing</h1>
+      <p class="font-body text-lg text-dark/60 max-w-2xl">
+        From choosing your colors and style to watching it all come together the next morning — here's what to expect when you work with Buzz Co. We offer four curb profiles, fourteen integral colors, and ten stamp patterns so your landscape edging matches your home and your taste. No two yards are the same, and neither are our curbing projects.
+      </p>
+    </div>
+  </section>
+
+  <!-- Section 1 — 4 Curb Styles -->
+  <section class="py-20 md:py-32 bg-warm-white" aria-labelledby="curb-styles-heading">
+    <div class="max-w-6xl mx-auto px-6 md:px-8">
+      <h2 id="curb-styles-heading" class="font-heading text-2xl md:text-3xl font-bold text-dark mb-4">4 Curb Styles</h2>
+      <p class="font-body text-dark/60 mb-12 max-w-2xl">
+        The profile of your curb affects both how it looks and how it performs. Whether you need drainage-friendly edges or a mower-friendly design, we've got a style that fits. Each profile is extruded on-site from the same high-quality concrete mix — the only difference is the shape of the form we use.
+      </p>
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {curbStyles.map((curbStyle) => (
+          <article class="bg-white rounded-card p-6 border border-dark/[0.06]">
+            <div class="w-full h-20 mb-4 flex items-center justify-center" aria-hidden="true">
+              <img src={curbStyle.icon} alt="" class="h-full max-w-[140px] object-contain brightness-[0.35]" />
+            </div>
+            <h3 class="font-heading font-semibold text-lg text-dark mb-2">{curbStyle.name}</h3>
+            <p class="font-body text-sm text-dark/60">{curbStyle.description}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 2 — 14 Colors -->
+  <section class="py-20 md:py-32 bg-warm-gray" aria-labelledby="colors-heading">
+    <div class="max-w-6xl mx-auto px-6 md:px-8">
+      <h2 id="colors-heading" class="font-heading text-2xl md:text-3xl font-bold text-dark mb-4">14 Integral Concrete Colors</h2>
+      <p class="font-body text-dark/60 mb-12 max-w-2xl">
+        Our colors run through the entire curb — not just painted on top. They won't peel, chip, or fade like surface-applied coatings. Integral color is mixed into the concrete before it's poured, so the color goes all the way through. When we bring our sample board to your yard, you'll see the real thing — not a paint chip that won't match the final result.
+      </p>
+      <div class="grid grid-cols-3 md:grid-cols-7 gap-4">
+        {colors.map((color) => (
+          <div class="flex flex-col items-center">
+            <div
+              class="w-16 h-16 md:w-20 md:h-20 rounded-full border border-dark/[0.08] shadow-sm"
+              style={`background-color: ${color.hex}`}
+              aria-hidden="true"
+            />
+            <span class="font-data text-xs text-dark/70 mt-2 text-center">{color.name}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 3 — 10 Stamp Patterns -->
+  <section class="py-20 md:py-32 bg-warm-white" aria-labelledby="patterns-heading">
+    <div class="max-w-6xl mx-auto px-6 md:px-8">
+      <h2 id="patterns-heading" class="font-heading text-2xl md:text-3xl font-bold text-dark mb-4">10 Stamp Patterns</h2>
+      <p class="font-body text-dark/60 mb-12 max-w-2xl">
+        Stamped patterns are pressed into wet concrete for texture that mimics natural materials. Choose from stone, brick, wood grain, and more — each pattern adds character without the cost of real stone or brick. We stamp while the concrete is still plastic, so the texture is crisp and consistent. After curing and sealing, stamped curbing holds up to foot traffic, sprinklers, and Utah weather.
+      </p>
+      <div class="grid md:grid-cols-2 lg:grid-cols-5 gap-4">
+        {stampPatterns.map((item) => (
+          <article class="bg-warm-gray rounded-none p-4 text-center border border-dark/[0.06]">
+            <div class="h-24 rounded-none mb-3 overflow-hidden border border-dark/[0.06]">
+              <img
+                src={item.image}
+                alt={`${item.name} stamp pattern`}
+                class="w-full h-full object-cover"
+                loading="lazy"
+              />
+            </div>
+            <h3 class="font-heading text-sm font-medium text-dark">{item.name}</h3>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 4 — The Process -->
+  <section class="py-20 md:py-32 bg-warm-gray" aria-labelledby="process-heading">
+    <div class="max-w-6xl mx-auto px-6 md:px-8">
+      <h2 id="process-heading" class="font-heading text-2xl md:text-3xl font-bold text-dark mb-4">The Process</h2>
+      <p class="font-body text-dark/60 mb-12 max-w-2xl">
+        Most curbing companies stretch the process across weeks. We keep it simple and fast. Here's how it works from first visit to finished curb. We schedule walkthroughs so both homeowners can be there — no guessing, no second call. If the quote works for you, we get you on the schedule that same week.
+      </p>
+      <div class="grid md:grid-cols-3 gap-8">
+        {processSteps.map((step) => (
+          <article>
+            <p class="font-data text-gold text-sm font-bold mb-2">{step.num}</p>
+            <h3 class="font-heading font-semibold text-xl text-dark mb-2">{step.title}</h3>
+            <p class="font-body text-dark/60">{step.description}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Finished Results Photo Strip -->
+  <section class="py-20 md:py-28 bg-warm-white" aria-labelledby="results-heading">
+    <div class="max-w-6xl mx-auto px-6 md:px-8">
+      <p class="section-label mb-4">FINISHED RESULTS</p>
+      <h2 id="results-heading" class="font-heading text-2xl md:text-3xl font-bold text-dark mb-4">What It Looks Like When We're Done</h2>
+      <p class="font-body text-dark/60 mb-10 max-w-2xl">
+        Real projects, real yards. Every install is designed on-site and poured to fit your specific landscape.
+      </p>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+        <img
+          src="/images/gallery/stone-home-decorative-curbing-mulch-bed-utah.jpg"
+          alt="Completed concrete curbing bordering mulch beds at a Utah stone home"
+          loading="lazy"
+          decoding="async"
+          class="w-full h-52 md:h-64 object-cover"
+        />
+        <img
+          src="/images/gallery/curbing-mulch-bed-boulder-utah-lake-view.jpg"
+          alt="Finished concrete landscape curbing around mulch bed with boulders in Utah"
+          loading="lazy"
+          decoding="async"
+          class="w-full h-52 md:h-64 object-cover"
+        />
+        <img
+          src="/images/gallery/winding-concrete-curbing-lawn-border-utah.jpg"
+          alt="Completed winding curbing installation separating lawn from mulch beds in Utah"
+          loading="lazy"
+          decoding="async"
+          class="w-full h-52 md:h-64 object-cover"
+        />
+        <img
+          src="/images/gallery/backyard-curbing-black-rock-mulch-aerial-utah.jpg"
+          alt="Aerial view of finished backyard curbing with black rock mulch in Utah"
+          loading="lazy"
+          decoding="async"
+          class="w-full h-52 md:h-64 object-cover"
+        />
+      </div>
+      <div class="text-center mt-6">
+        <a href="/gallery/" class="font-heading text-sm font-medium text-accent hover:underline">
+          View full project gallery →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="py-20 md:py-32 bg-warm-white text-center">
+    <div class="max-w-6xl mx-auto px-6 md:px-8">
+      <h2 class="font-heading text-2xl md:text-3xl font-bold text-dark mb-4">Ready to choose your style?</h2>
+      <p class="font-body text-dark/60 mb-6 max-w-xl mx-auto">
+        We'll bring our color and pattern samples to your yard. No pressure, no runaround — just a firm quote and same-week scheduling if it works for you.
+      </p>
+      <a href="/logan/get-estimate/" class="btn-primary">
+        <span class="btn-bg" aria-hidden="true"></span>
+        <span class="btn-text">Get a Free Estimate</span>
+      </a>
+    </div>
+  </section>
+
+</BaseLayout>

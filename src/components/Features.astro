@@ -1,0 +1,69 @@
+---
+import FeatureProcessTracker from './FeatureProcessTracker';
+import FeatureStyleSelector from './FeatureStyleSelector';
+import FeatureReviewTypewriter from './FeatureReviewTypewriter';
+
+interface Props {
+  locationId: string;
+  cityName?: string;
+}
+
+const { locationId, cityName = 'Utah' } = Astro.props;
+const estimateUrl = `/${locationId}/get-estimate/`;
+---
+
+<section class="bg-warm-white py-20 md:py-32" aria-label="Features">
+  <div class="mx-auto max-w-7xl px-6 md:px-8">
+    <p class="section-label mb-4">WHY BUZZ CO</p>
+    <h2 class="font-heading text-section-heading font-bold text-dark mb-16">
+      What Makes {cityName} Homeowners Choose Us
+    </h2>
+
+    <div class="grid gap-6 md:grid-cols-3">
+      <!-- Card 1 — Diagnostic Shuffler -->
+      <article class="relative overflow-hidden rounded-none border border-dark/[0.06] bg-warm-gray p-8 shadow-lg shadow-dark/[0.03]">
+        <p class="font-data mb-3 text-xs uppercase tracking-widest text-accent">PROCESS</p>
+        <h3 class="font-heading mb-2 text-xl font-semibold text-dark">Seamless from Quote to Pour</h3>
+        <p class="font-body mb-6 text-sm text-dark/60">
+          We respect your time. Clear communication, straightforward pricing, and a professional crew.
+        </p>
+        <div class="relative mt-4 h-48 rounded-none bg-dark/5 p-4">
+          <FeatureProcessTracker client:visible />
+        </div>
+      </article>
+
+      <!-- Card 2 — Telemetry Typewriter -->
+      <article class="relative overflow-hidden rounded-none border border-dark/[0.06] bg-warm-gray p-8 shadow-lg shadow-dark/[0.03]">
+        <p class="font-data mb-3 text-xs uppercase tracking-widest text-accent">CUSTOMIZATION</p>
+        <h3 class="font-heading mb-2 text-xl font-semibold text-dark">14 Colors. 10 Patterns. 4 Styles.</h3>
+        <p class="font-body mb-6 text-sm text-dark/60">
+          Block, slant, mower, and straight-line — every curb is designed to match your home.
+        </p>
+        <div class="relative mt-4 h-48 rounded-none bg-dark/5 p-4">
+          <FeatureStyleSelector client:visible />
+        </div>
+      </article>
+
+      <!-- Card 3 — Cursor Protocol Scheduler -->
+      <article class="relative overflow-hidden rounded-none border border-dark/[0.06] bg-warm-gray p-8 shadow-lg shadow-dark/[0.03]">
+        <p class="font-data mb-3 text-xs uppercase tracking-widest text-accent">EXPERIENCE</p>
+        <h3 class="font-heading mb-2 text-xl font-semibold text-dark">15+ Years of Utah Curbing</h3>
+        <p class="font-body mb-6 text-sm text-dark/60">
+          Thousands of yards across Cache Valley and beyond. 4.9-star rated.
+        </p>
+        <div class="relative mt-4 h-48 rounded-none bg-dark/5 p-4">
+          <FeatureReviewTypewriter client:visible />
+        </div>
+      </article>
+    </div>
+
+    <!-- Mid-section CTA -->
+    <div class="mt-16 text-center">
+      <p class="font-body mb-4 text-dark/70">Ready to get started?</p>
+      <a href={estimateUrl} class="btn-primary">
+        <span class="btn-bg" aria-hidden="true"></span>
+        <span class="btn-text">Get a Free Estimate</span>
+      </a>
+    </div>
+  </div>
+</section>

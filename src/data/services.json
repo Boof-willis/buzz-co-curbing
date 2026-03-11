@@ -1,0 +1,86 @@
+[
+  {
+    "slug": "decorative-concrete-curbing",
+    "name": "Decorative Concrete Curbing",
+    "shortName": "Decorative Curbing",
+    "description": "Custom-poured concrete landscape curbing that adds clean, permanent borders to flower beds, walkways, and yard features. Choose from 14 colors, 10 stamp patterns, and 4 curb styles to match your home.",
+    "icon": "curbing"
+  },
+  {
+    "slug": "landscape-edging",
+    "name": "Landscape Edging",
+    "shortName": "Landscape Edging",
+    "description": "Permanent concrete edging that keeps mulch, rock, and soil contained while giving your landscaping a finished, professional look. No more plastic borders that shift and crack.",
+    "icon": "edging"
+  },
+  {
+    "slug": "flower-bed-borders",
+    "name": "Flower Bed Borders",
+    "shortName": "Flower Bed Borders",
+    "description": "Beautiful, durable concrete borders for flower beds that eliminate the constant maintenance of traditional edging materials. Design curves and shapes that complement your garden layout.",
+    "icon": "flower"
+  },
+  {
+    "slug": "tree-rings",
+    "name": "Tree Rings",
+    "shortName": "Tree Rings",
+    "description": "Circular concrete curbing around trees that protects root systems, defines mulch areas, and adds a polished detail to your landscape. Custom sized to fit any tree.",
+    "icon": "tree"
+  },
+  {
+    "slug": "driveway-borders",
+    "name": "Driveway Borders",
+    "shortName": "Driveway Borders",
+    "description": "Concrete curbing along driveways that prevents gravel spread, defines edges, and adds curb appeal visible from the street. The first thing visitors notice.",
+    "icon": "driveway"
+  },
+  {
+    "slug": "walkway-borders",
+    "name": "Walkway Borders",
+    "shortName": "Walkway Borders",
+    "description": "Clean concrete borders along walkways and pathways that keep landscaping materials in place and create defined, intentional-looking pathways through your yard.",
+    "icon": "walkway"
+  },
+  {
+    "slug": "stamped-concrete-curbing",
+    "name": "Stamped Concrete Curbing",
+    "shortName": "Stamped Curbing",
+    "description": "Curbing with impressed patterns that mimic natural stone, brick, or wood grain. 10 stamp patterns available — all the character of premium materials at a fraction of the cost.",
+    "icon": "stamp"
+  },
+  {
+    "slug": "custom-color-curbing",
+    "name": "Custom Color Concrete Curbing",
+    "shortName": "Custom Color Curbing",
+    "description": "14 integral concrete colors that run through the entire curb — not just painted on top. Color-matched to your home's exterior, stone, or landscape rock for a cohesive look.",
+    "icon": "color"
+  },
+  {
+    "slug": "mower-style-curbing",
+    "name": "Mower-Style Curbing",
+    "shortName": "Mower-Style",
+    "description": "A low-profile curb design that lets your mower wheel ride right along the edge. No more hand-trimming. The most practical curb style for homeowners who maintain their own lawn.",
+    "icon": "mower"
+  },
+  {
+    "slug": "commercial-curbing",
+    "name": "Commercial Concrete Curbing",
+    "shortName": "Commercial Curbing",
+    "description": "Large-scale decorative curbing for commercial properties, HOAs, apartment complexes, and municipal projects. Professional appearance with the durability to handle high-traffic areas.",
+    "icon": "commercial"
+  },
+  {
+    "slug": "curbing-repair",
+    "name": "Curbing Repair",
+    "shortName": "Curbing Repair",
+    "description": "Repair cracked, chipped, or damaged concrete curbing. We match existing colors and patterns to restore your curbing to like-new condition without replacing the entire run.",
+    "icon": "repair"
+  },
+  {
+    "slug": "curbing-resealing",
+    "name": "Curbing Re-Sealing",
+    "shortName": "Curbing Re-Sealing",
+    "description": "Protective sealant application that extends the life of your concrete curbing, restores color vibrancy, and protects against UV fading and water damage.",
+    "icon": "seal"
+  }
+]

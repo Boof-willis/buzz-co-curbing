@@ -1,0 +1,87 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Hero from '../../components/Hero.astro';
+import TrustBar from '../../components/TrustBar.astro';
+import Features from '../../components/Features.astro';
+import SocialProof from '../../components/SocialProof.astro';
+import CounterStats from '../../components/CounterStats.astro';
+import CounterStatsAnimation from '../../components/CounterStatsAnimation.jsx';
+import Philosophy from '../../components/Philosophy.astro';
+import PhilosophyReveal from '../../components/PhilosophyReveal.jsx';
+import Protocol from '../../components/Protocol.astro';
+import FAQ from '../../components/FAQ.astro';
+import GetStarted from '../../components/GetStarted.astro';
+import CrossTerritoryLink from '../../components/CrossTerritoryLink.astro';
+import locationsData from '../../data/locations.json';
+
+const loc = locationsData.locations.find(l => l.id === 'logan');
+
+const localBusinessSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'HomeAndConstructionBusiness',
+  name: 'Buzz Co Curbing — Logan',
+  description: loc.tagline,
+  url: 'https://www.buzzcocurb.com/logan/',
+  telephone: loc.phone,
+  email: loc.email,
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'Nibley',
+    addressRegion: 'UT',
+    postalCode: '84321',
+    addressCountry: 'US',
+  },
+  areaServed: loc.cities.map(city => ({ '@type': 'City', name: city })),
+  openingHoursSpecification: loc.hoursSpec.map(h => ({
+    '@type': 'OpeningHoursSpecification',
+    dayOfWeek: h.dayOfWeek,
+    opens: h.opens,
+    closes: h.closes,
+  })),
+  aggregateRating: {
+    '@type': 'AggregateRating',
+    ratingValue: '4.9',
+    reviewCount: '50',
+    bestRating: '5',
+  },
+};
+---
+
+<BaseLayout
+  title="Concrete Curbing in Logan, Utah | Buzz Co Curbing"
+  description="Premium decorative concrete curbing in Logan and Cache Valley. 14 colors, 10 patterns, same-week scheduling. Free estimates from Buzz Co Curbing."
+  canonical="https://www.buzzcocurb.com/logan/"
+  geoPlacename="Logan"
+  geoRegion="US-UT"
+  locationId={loc.id}
+  phone={loc.phone}
+  phoneHref={loc.phoneHref}
+
+  schema={localBusinessSchema}
+  showFaq={true}
+>
+  <Hero
+    locationId={loc.id}
+    locationName={loc.name}
+    cityName="Logan"
+    phone={loc.phone}
+    phoneHref={loc.phoneHref}
+    estimateUrl={`/${loc.id}/get-estimate/`}
+  />
+  <TrustBar />
+  <Features locationId={loc.id} cityName="Logan" />
+  <SocialProof testimonials={loc.testimonials} locationId={loc.id} />
+  <CounterStats />
+  <CounterStatsAnimation client:visible />
+  <Philosophy locationId={loc.id} />
+  <PhilosophyReveal client:visible />
+  <Protocol />
+  <FAQ locationId={loc.id} cityName="Logan" />
+  <GetStarted
+    locationId={loc.id}
+    phone={loc.phone}
+    phoneHref={loc.phoneHref}
+    testimonial={loc.testimonials[0] ? { name: loc.testimonials[0].name, text: loc.testimonials[0].text, rating: loc.testimonials[0].rating } : undefined}
+  />
+  <CrossTerritoryLink locationId={loc.id} />
+</BaseLayout>

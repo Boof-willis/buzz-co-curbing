@@ -1,0 +1,48 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import locationsData from '../data/locations.json';
+
+const locations = locationsData.locations;
+const estimateUrls: Record<string, string> = {
+  logan: '/logan/get-estimate/',
+  central: '/central/get-estimate/',
+  south: '/south/get-estimate/',
+};
+---
+
+<BaseLayout
+  title="Contact Buzz Co Curbing | Utah Locations"
+  description="Contact Buzz Co Curbing in Logan, Ogden/SLC, or Utah Valley. Get a free estimate for decorative concrete curbing. We respond within hours."
+>
+  <section class="pt-32 pb-20 md:pt-40 md:pb-32 bg-warm-white">
+    <div class="max-w-6xl mx-auto px-6 md:px-8">
+      <p class="font-data text-xs uppercase tracking-[0.2em] text-warm-muted mb-4">GET IN TOUCH</p>
+      <h1 class="font-heading text-section-heading font-bold text-dark mb-6">Contact Buzz Co Curbing</h1>
+      <p class="font-body text-lg text-dark/60 max-w-2xl mb-16">We serve three territories across Utah. Find your area below and reach out for a free estimate. We typically respond within a few hours.</p>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {locations.map(loc => (
+          <div class="rounded-card border border-dark/[0.06] bg-warm-gray p-8 flex flex-col">
+            <p class="font-data text-xs uppercase tracking-widest text-accent mb-3">{loc.territory}</p>
+            <h2 class="font-heading font-semibold text-xl text-dark mb-4">{loc.label}</h2>
+            <p class="font-body text-sm text-dark/60 mb-4">{loc.tagline}</p>
+            <div class="space-y-2 mb-6">
+              <p class="font-body text-dark">
+                <a href={loc.phoneHref} class="text-accent hover:underline font-medium">{loc.phone}</a>
+              </p>
+              <p class="font-body text-dark">
+                <a href={`mailto:${loc.email}`} class="text-accent hover:underline">{loc.email}</a>
+              </p>
+            </div>
+            <p class="font-data text-xs uppercase tracking-widest text-dark/50 mb-2">Service Area</p>
+            <p class="font-body text-sm text-dark/70 mb-6">{loc.priorityCities.join(', ')} and more</p>
+            <a href={estimateUrls[loc.id]} class="btn-primary mt-auto w-full justify-center">
+              <span class="btn-bg" aria-hidden="true"></span>
+              <span class="btn-text">Get a Free Estimate</span>
+            </a>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>

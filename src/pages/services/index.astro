@@ -1,0 +1,38 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import services from '../../data/services.json';
+---
+
+<BaseLayout
+  title="Concrete Curbing Services in Utah | Buzz Co Curbing"
+  description="Decorative concrete curbing, landscape edging, stamped patterns, custom colors, tree rings, driveway borders, and more. Serving all of Utah."
+>
+  <section class="pt-32 pb-20 md:pt-40 md:pb-32 bg-warm-white">
+    <div class="max-w-6xl mx-auto px-6 md:px-8">
+      <p class="font-data text-xs uppercase tracking-[0.2em] text-warm-muted mb-4">OUR SERVICES</p>
+      <h1 class="font-heading text-section-heading font-bold text-dark mb-6">Concrete Curbing Services Across Utah</h1>
+      <p class="font-body text-lg text-dark/60 max-w-2xl mb-16">From decorative landscape curbing to commercial-grade edging, we offer the full range of concrete curbing services — all with same-week scheduling and 14 color options.</p>
+      
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {services.map(service => (
+          <a href={`/services/${service.slug}/`} class="group bg-warm-gray border border-dark/[0.06] rounded-card p-8 transition-all duration-300 hover:shadow-lg hover:shadow-dark/[0.06] hover:-translate-y-1">
+            <p class="font-data text-xs uppercase tracking-widest text-accent mb-3">{service.shortName}</p>
+            <h2 class="font-heading font-semibold text-xl text-dark mb-3 group-hover:text-accent transition-colors">{service.name}</h2>
+            <p class="font-body text-sm text-dark/60 leading-relaxed">{service.description}</p>
+            <p class="font-heading font-medium text-sm text-accent mt-4 flex items-center gap-1">
+              Learn more <span class="transition-transform duration-300 group-hover:translate-x-1">→</span>
+            </p>
+          </a>
+        ))}
+      </div>
+
+      <div class="text-center mt-16">
+        <p class="font-body text-dark/60 mb-4">Ready to transform your yard?</p>
+        <a href="/logan/get-estimate/" class="btn-primary">
+          <span class="btn-bg" aria-hidden="true"></span>
+          <span class="btn-text">Get a Free Estimate</span>
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
