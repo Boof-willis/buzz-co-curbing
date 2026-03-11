@@ -47,7 +47,7 @@ export default function EstimateSurvey({ locationId }) {
 
   const canAdvance = () => {
     switch (step) {
-      case 1: return data.area || data.address;
+      case 1: return data.area;
       case 2: return data.linearFeet;
       case 3: return data.curbStyle;
       case 4: return true;
@@ -116,7 +116,7 @@ export default function EstimateSurvey({ locationId }) {
         <div className="space-y-5">
           <div>
             <h3 className="font-heading text-lg font-bold text-dark mb-1">Where is your property?</h3>
-            <p className="font-body text-sm text-dark/50 mb-5">Select your service area or enter your address.</p>
+            <p className="font-body text-sm text-dark/50 mb-5">Select your service area.</p>
           </div>
 
           <div className="grid grid-cols-1 gap-3">
@@ -144,19 +144,6 @@ export default function EstimateSurvey({ locationId }) {
               </button>
             ))}
           </div>
-
-          <div className="relative">
-            <div className="absolute inset-x-0 top-1/2 border-t border-dark/[0.06]" />
-            <p className="relative mx-auto w-fit bg-white px-4 text-center font-body text-xs text-dark/40">or enter your address</p>
-          </div>
-
-          <input
-            type="text"
-            value={data.address}
-            onChange={(e) => update('address', e.target.value)}
-            placeholder="123 Main St, City, UT"
-            className="w-full rounded-none border-2 border-dark/[0.08] bg-white px-5 py-4 font-body text-dark placeholder:text-dark/30 focus:border-gold focus:outline-none focus:ring-0 transition-colors"
-          />
         </div>
       )}
 

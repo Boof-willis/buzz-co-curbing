@@ -11,21 +11,21 @@ const estimateUrl = `/${locationId}/get-estimate/`;
 
 <div
   id="mobile-cta-bar"
-  class="fixed bottom-0 left-0 right-0 z-40 flex min-h-[56px] items-center justify-between gap-4 bg-dark px-6 pb-[env(safe-area-inset-bottom)] pt-4 md:hidden translate-y-full transition-transform duration-500 ease-out"
+  class="fixed bottom-0 left-0 right-0 z-50 flex items-center justify-between gap-2 bg-dark px-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] pt-3 md:hidden translate-y-full transition-transform duration-500 ease-out"
   aria-label="Quick actions"
 >
   <a
     href={estimateUrl}
     data-estimate-href
-    class="font-heading flex flex-1 items-center justify-center rounded-none bg-[#fcc33c] px-6 py-3.5 text-base font-semibold text-dark transition-transform duration-300 hover:scale-[1.02] focus:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-dark"
+    class="font-heading flex flex-1 items-center justify-center rounded-none bg-[#fcc33c] px-2 py-3 text-sm font-semibold text-dark transition-transform duration-300 hover:scale-[1.02] focus:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-dark whitespace-nowrap"
   >
     Get a Free Estimate
   </a>
-        <a
-          href={phoneHref}
-          data-phone-href
-          class="font-data font-heading flex flex-1 items-center justify-center rounded-none border-2 border-white/20 px-6 py-3.5 text-base font-semibold text-white transition-all duration-300 hover:bg-white/5 hover:scale-[1.02] focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-dark"
-        >
+  <a
+    href={phoneHref}
+    data-phone-href
+    class="font-data font-heading flex flex-1 items-center justify-center rounded-none border border-white/20 px-2 py-3 text-sm font-semibold text-white transition-all duration-300 hover:bg-white/5 hover:scale-[1.02] focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-dark whitespace-nowrap"
+  >
     <span data-phone-display>{phone}</span>
   </a>
 </div>
