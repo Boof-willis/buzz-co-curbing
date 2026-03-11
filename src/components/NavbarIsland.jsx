@@ -32,12 +32,12 @@ export default function NavbarIsland() {
     }
 
     function setOpaque() {
-      if (isMenuOpen) return; // Keep transparent if menu is open
-      navbar.style.backgroundColor = 'rgba(250,250,247,0.9)';
+      if (isMenuOpen) return;
+      navbar.style.backgroundColor = 'rgba(250,250,247,0.97)';
       navbar.style.borderColor = 'rgba(26,26,26,0.05)';
-      navbar.style.backdropFilter = 'blur(24px)';
-      navbar.style.webkitBackdropFilter = 'blur(24px)';
-      navbar.style.boxShadow = '';
+      navbar.style.backdropFilter = 'none';
+      navbar.style.webkitBackdropFilter = 'none';
+      navbar.style.boxShadow = '0 1px 3px rgba(0,0,0,0.04)';
       navbar.querySelectorAll('[data-nav-link]').forEach((el) => {
         el.style.color = '';
       });

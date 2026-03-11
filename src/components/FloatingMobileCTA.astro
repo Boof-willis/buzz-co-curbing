@@ -11,7 +11,7 @@ const estimateUrl = `/${locationId}/get-estimate/`;
 
 <div
   id="mobile-cta-bar"
-  class="fixed -bottom-12 left-0 right-0 z-50 flex items-center justify-between gap-2 bg-dark px-3 pb-[calc(3rem+max(0.75rem,env(safe-area-inset-bottom)))] pt-3 md:hidden translate-y-full transition-transform duration-500 ease-out"
+  class="fixed -bottom-12 left-0 right-0 z-50 flex items-center justify-between gap-2 bg-dark px-3 pb-[calc(3rem+max(0.75rem,env(safe-area-inset-bottom)))] pt-3 md:hidden translate-y-full transition-transform duration-500 ease-out will-change-transform"
   aria-label="Quick actions"
 >
   <a
@@ -33,12 +33,12 @@ const estimateUrl = `/${locationId}/get-estimate/`;
 <script>
   const bar = document.getElementById('mobile-cta-bar');
   if (bar) {
+    let visible = false;
     const show = () => {
-      if (window.scrollY >= window.innerHeight) {
-        bar.classList.remove('translate-y-full');
-      } else {
-        bar.classList.add('translate-y-full');
-      }
+      const shouldShow = window.scrollY >= window.innerHeight;
+      if (shouldShow === visible) return;
+      visible = shouldShow;
+      bar.classList.toggle('translate-y-full', !visible);
     };
     window.addEventListener('scroll', show, { passive: true });
     show();
