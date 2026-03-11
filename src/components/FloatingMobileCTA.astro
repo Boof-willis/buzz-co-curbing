@@ -11,12 +11,9 @@ const estimateUrl = `/${locationId}/get-estimate/`;
 
 <div
   id="mobile-cta-bar"
-  class="fixed bottom-0 left-0 right-0 z-50 flex items-center justify-between gap-2 bg-dark px-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] pt-3 md:hidden translate-y-full transition-transform duration-500 ease-out"
+  class="fixed -bottom-12 left-0 right-0 z-50 flex items-center justify-between gap-2 bg-dark px-3 pb-[calc(3rem+max(0.75rem,env(safe-area-inset-bottom)))] pt-3 md:hidden translate-y-full transition-transform duration-500 ease-out"
   aria-label="Quick actions"
 >
-  <!-- Background bleed to cover iOS Safari address bar scroll gap -->
-  <div class="absolute top-full left-0 right-0 h-[100px] bg-dark -z-10" aria-hidden="true"></div>
-
   <a
     href={estimateUrl}
     data-estimate-href
