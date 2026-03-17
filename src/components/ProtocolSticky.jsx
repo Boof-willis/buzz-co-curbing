@@ -3,22 +3,22 @@ import { useEffect, useRef, useState } from 'react';
 const STEPS = [
   {
     num: "01",
-    title: "Get Your Free Estimate",
-    desc: "Call or submit a request. We respond within hours and schedule a time to visit your property — no waiting around for a callback.",
+    title: "Get Your Free Quote",
+    desc: "Call or submit a request. We'll have a quick phone conversation to understand your project, and in most cases we can quote right over the phone. If needed, we're happy to schedule a free site visit.",
     image: "/images/gallery/stone-home-decorative-curbing-mulch-bed-utah.jpg",
     alt: "Stone home exterior in Utah with decorative concrete curbing bordering mulch beds"
   },
   {
     num: "02",
-    title: "We Design It On-Site Together",
-    desc: "We walk your yard with you, bring 14 color samples and 10 stamp patterns, measure the footage, and design the layout on the spot. You get an exact quote before we leave.",
+    title: "We Design It Together on Install Day",
+    desc: "When we arrive, we walk the yard with you step-by-step to finalize the exact layout and design. You choose your colors and patterns, and we make sure everything looks exactly how you want it.",
     image: "/images/gallery/paver-patio-curbing-backyard-aerial-utah.jpg",
     alt: "Aerial view of a Utah backyard with cobblestone paver patio and concrete curbing"
   },
   {
     num: "03",
     title: "Professional Installation & Cleanup",
-    desc: "Our crew arrives on time, preps the area, and pours the curbing to your exact specifications. We clean up every scrap of material and walk you through the finished product.",
+    desc: "Once the design is approved, our crew preps the area, mixes the concrete on site, and extrudes the curbing to your exact specifications. We clean up every scrap of material and walk you through the finished product.",
     image: "/images/gallery/hexagonal-paver-walkway-charcoal-utah.jpg",
     alt: "Completed charcoal hexagonal paver walkway with white rock border in a Utah backyard"
   }

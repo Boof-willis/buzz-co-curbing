@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react';
 
 const STEPS = [
-  'Free On-Site Quote',
+  'Free Phone Quote',
   'Custom Layout & Prep',
-  'Seamless Concrete Pour',
+  'Seamless Concrete Install',
   'Zero-Mess Cleanup'
 ];
 

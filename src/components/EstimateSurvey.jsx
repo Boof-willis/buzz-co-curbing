@@ -19,7 +19,6 @@ const CURB_STYLES = [
   { id: 'block', label: 'Block' },
   { id: 'slant', label: 'Slant / Wedge' },
   { id: 'mower', label: 'Mower' },
-  { id: 'straight', label: 'Straight' },
 ];
 
 const TOTAL_STEPS = 5;
@@ -83,7 +82,7 @@ export default function EstimateSurvey({ locationId }) {
         </div>
         <h3 className="font-heading text-xl font-bold text-dark mb-2">We Got Your Request!</h3>
         <p className="font-body text-dark/60 max-w-sm">
-          We'll reach out within a few hours to schedule your free on-site estimate. Talk soon!
+          We'll reach out within a few hours to discuss your project and get you a quote. Talk soon!
         </p>
       </div>
     );
@@ -179,7 +178,7 @@ export default function EstimateSurvey({ locationId }) {
         <div className="space-y-5">
           <div>
             <h3 className="font-heading text-lg font-bold text-dark mb-1">Select your curb style</h3>
-            <p className="font-body text-sm text-dark/50 mb-5">Pick a profile. We'll fine-tune details during the walkthrough.</p>
+            <p className="font-body text-sm text-dark/50 mb-5">Pick a profile. We'll fine-tune details on install day.</p>
           </div>
 
           <div className="grid grid-cols-2 gap-3">
@@ -204,9 +203,6 @@ export default function EstimateSurvey({ locationId }) {
                   )}
                   {style.id === 'mower' && (
                     <img src="/images/SVG/Mower.svg" alt="Mower Style" className="w-24 h-auto" />
-                  )}
-                  {style.id === 'straight' && (
-                    <img src="/images/SVG/Straight.svg" alt="Straight Lines" className="w-24 h-auto" />
                   )}
                 </div>
                 <span className={`font-heading text-sm font-semibold ${
@@ -289,7 +285,7 @@ export default function EstimateSurvey({ locationId }) {
         <div className="space-y-5">
           <div>
             <h3 className="font-heading text-lg font-bold text-dark mb-1">Last step — how do we reach you?</h3>
-            <p className="font-body text-sm text-dark/50 mb-5">We'll call or text to set up your free on-site estimate.</p>
+            <p className="font-body text-sm text-dark/50 mb-5">We'll call or text to discuss your project and get you a quote.</p>
           </div>
 
           <div className="space-y-1.5">

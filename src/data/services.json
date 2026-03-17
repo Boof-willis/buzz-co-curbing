@@ -3,7 +3,7 @@
     "slug": "decorative-concrete-curbing",
     "name": "Decorative Concrete Curbing",
     "shortName": "Decorative Curbing",
-    "description": "Custom-poured concrete landscape curbing that adds clean, permanent borders to flower beds, walkways, and yard features. Choose from 14 colors, 10 stamp patterns, and 4 curb styles to match your home.",
+    "description": "Custom-installed concrete landscape curbing that adds clean, permanent borders to flower beds, walkways, and yard features. Choose from 14 colors, 10 stamp patterns, and 3 curb styles to match your home.",
     "icon": "curbing"
   },
   {
@@ -26,13 +26,6 @@
     "shortName": "Tree Rings",
     "description": "Circular concrete curbing around trees that protects root systems, defines mulch areas, and adds a polished detail to your landscape. Custom sized to fit any tree.",
     "icon": "tree"
-  },
-  {
-    "slug": "driveway-borders",
-    "name": "Driveway Borders",
-    "shortName": "Driveway Borders",
-    "description": "Concrete curbing along driveways that prevents gravel spread, defines edges, and adds curb appeal visible from the street. The first thing visitors notice.",
-    "icon": "driveway"
   },
   {
     "slug": "walkway-borders",
