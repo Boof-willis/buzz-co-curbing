@@ -21,6 +21,12 @@ const CURB_STYLES = [
   { id: 'mower', label: 'Mower' },
 ];
 
+const WEBHOOKS = {
+  logan: 'https://services.leadconnectorhq.com/hooks/0j2Z0AqFSPiIh2cUeNRO/webhook-trigger/8iOg3WJjwMCRKSbK2SIN',
+  central: 'https://services.leadconnectorhq.com/hooks/RoXyWVOiw8UZWGs2zaqB/webhook-trigger/WvSL1I27yQF7zPunoA5F',
+  south: 'https://services.leadconnectorhq.com/hooks/l4BF8a6ec5cTCUWGNwpi/webhook-trigger/2ea75cd1-0169-4722-a892-dc209d0dfc6b',
+};
+
 const TOTAL_STEPS = 5;
 
 export default function EstimateSurvey({ locationId }) {
@@ -31,6 +37,7 @@ export default function EstimateSurvey({ locationId }) {
   const [submitted, setSubmitted] = useState(false);
   const [data, setData] = useState({
     area: locationId || '',
+    website: '', // honeypot
     address: '',
     linearFeet: '',
     curbStyle: '',
@@ -57,16 +64,23 @@ export default function EstimateSurvey({ locationId }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const formData = new FormData();
-    formData.append('form-name', 'estimate-survey');
+    if (data.website) return; // honeypot triggered — silently discard
+
+    const payload = {};
     Object.entries(data).forEach(([key, val]) => {
-      if (val) formData.append(key, val);
+      if (val && key !== 'website') payload[key] = val;
     });
 
-    fetch('/', {
+    const webhookUrl = WEBHOOKS[data.area];
+    if (!webhookUrl) {
+      setSubmitted(true);
+      return;
+    }
+
+    fetch(webhookUrl, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: new URLSearchParams(formData).toString(),
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload),
     })
       .then(() => setSubmitted(true))
       .catch(() => setSubmitted(true));
@@ -89,8 +103,20 @@ export default function EstimateSurvey({ locationId }) {
   }
 
   return (
-    <form onSubmit={handleSubmit} name="estimate-survey" data-netlify="true" method="POST">
-      <input type="hidden" name="form-name" value="estimate-survey" />
+    <form onSubmit={handleSubmit}>
+      {/* Honeypot — hidden from real users, filled by bots */}
+      <div aria-hidden="true" style={{ position: 'absolute', left: '-9999px', opacity: 0, height: 0, overflow: 'hidden' }}>
+        <label htmlFor="website">Website</label>
+        <input
+          type="text"
+          id="website"
+          name="website"
+          value={data.website}
+          onChange={(e) => update('website', e.target.value)}
+          tabIndex={-1}
+          autoComplete="off"
+        />
+      </div>
 
       {/* Progress Bar */}
       <div className="mb-8">
