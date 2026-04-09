@@ -2,10 +2,10 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
-<!-- PLACEHOLDER: Replace with actual terms of service -->
 <BaseLayout
   title="Terms of Service | Buzz Co Curbing"
   description="Terms of service for Buzz Co Curbing. Please read before using our website or services."
+  noindex={true}
 >
   <section class="pt-32 pb-20 md:pt-40 md:pb-32 bg-warm-white">
     <div class="max-w-3xl mx-auto px-6 md:px-8">
@@ -13,16 +13,54 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <h1 class="font-heading text-section-heading font-bold text-dark mb-12">Terms of Service</h1>
 
       <div class="prose prose-lg max-w-none font-body text-dark/80 space-y-8">
-        <p class="text-sm text-dark/50 italic">Last updated: [Date]. This is placeholder content. Replace with your actual terms of service before launch.</p>
+        <p class="text-sm text-dark/50">Effective date: April 9, 2026</p>
 
         <div class="rounded-card border border-dark/[0.06] bg-warm-gray p-8">
           <h2 class="font-heading text-xl font-semibold text-dark mb-4">Acceptance of Terms</h2>
-          <p>By accessing or using the Buzz Co Curbing website and services, you agree to be bound by these Terms of Service. If you do not agree to these terms, please do not use our website or services.</p>
+          <p>By accessing or using the Buzz Co Curbing website and services, you agree to be bound by these Terms of Service and our <a href="/privacy" class="text-accent hover:underline">Privacy Policy</a>. If you do not agree to these terms, please do not use our website or services.</p>
+        </div>
+
+        <div class="rounded-card border border-dark/[0.06] bg-warm-gray p-8">
+          <h2 class="font-heading text-xl font-semibold text-dark mb-4">Age Restriction</h2>
+          <p>You must be at least 18 years of age to use our website, submit forms, request estimates, or opt in to our SMS messaging programs. By using our services, you confirm that you are 18 years of age or older.</p>
         </div>
 
         <div class="rounded-card border border-dark/[0.06] bg-warm-gray p-8">
           <h2 class="font-heading text-xl font-semibold text-dark mb-4">Services</h2>
-          <p>Buzz Co Curbing provides decorative concrete curbing and related landscape services. Estimates are provided free of charge and do not obligate you to purchase. Final pricing and scope are confirmed at the time of agreement.</p>
+          <p>Buzz Co Curbing provides decorative concrete curbing and related landscape services across Utah. Estimates are provided free of charge and do not obligate you to purchase. Final pricing and scope are confirmed at the time of a signed agreement.</p>
+        </div>
+
+        <div class="rounded-card border border-dark/[0.06] bg-warm-gray p-8">
+          <h2 class="font-heading text-xl font-semibold text-dark mb-4">SMS Messaging Program</h2>
+          <p>When you submit our estimate request form, you may opt in to receive SMS text messages from Buzz Co Curbing. Our SMS program includes two categories of messages:</p>
+          <ul class="list-disc pl-6 mt-3 space-y-2">
+            <li><strong>Transactional messages:</strong> Appointment confirmations, estimate follow-ups, scheduling reminders, and service-related notifications.</li>
+            <li><strong>Marketing messages:</strong> Promotional offers, seasonal deals, special discounts, and company updates.</li>
+          </ul>
+          <p class="mt-4">Each category requires separate, explicit opt-in consent via checkbox on our estimate form. Neither opt-in is required to submit the form or receive services.</p>
+          <p class="mt-3"><strong>Message frequency:</strong> Message frequency may vary depending on your project status and the messaging category you opted into.</p>
+          <p class="mt-3"><strong>Message and data rates:</strong> Standard message and data rates may apply depending on your mobile carrier and plan. Buzz Co Curbing is not responsible for any charges from your carrier.</p>
+        </div>
+
+        <div class="rounded-card border border-dark/[0.06] bg-warm-gray p-8">
+          <h2 class="font-heading text-xl font-semibold text-dark mb-4">Opting Out of SMS Messages</h2>
+          <p>You can opt out of SMS messages at any time by replying <strong>STOP</strong> to any message you receive from us. After opting out, you will receive a one-time confirmation message and will no longer receive SMS messages from that program.</p>
+          <p class="mt-3">You may re-opt in at any time by submitting a new estimate request form and checking the relevant consent boxes.</p>
+        </div>
+
+        <div class="rounded-card border border-dark/[0.06] bg-warm-gray p-8">
+          <h2 class="font-heading text-xl font-semibold text-dark mb-4">SMS Support and Help</h2>
+          <p>For help with our SMS program, you can:</p>
+          <ul class="list-disc pl-6 mt-3 space-y-1">
+            <li>Reply <strong>HELP</strong> to any SMS message for assistance</li>
+            <li>Email us at <a href="mailto:info@buzzcocurb.com" class="text-accent hover:underline">info@buzzcocurb.com</a></li>
+            <li>Visit our website at <a href="https://www.buzzcocurb.com" class="text-accent hover:underline">www.buzzcocurb.com</a></li>
+          </ul>
+        </div>
+
+        <div class="rounded-card border border-dark/[0.06] bg-warm-gray p-8">
+          <h2 class="font-heading text-xl font-semibold text-dark mb-4">Carrier Liability Disclaimer</h2>
+          <p>Buzz Co Curbing and mobile carriers (including but not limited to T-Mobile, AT&T, Verizon, and others) are not liable for delayed or undelivered messages. Message delivery is subject to effective transmission by your mobile carrier and network conditions outside of our control.</p>
         </div>
 
         <div class="rounded-card border border-dark/[0.06] bg-warm-gray p-8">
@@ -41,13 +79,23 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         </div>
 
         <div class="rounded-card border border-dark/[0.06] bg-warm-gray p-8">
-          <h2 class="font-heading text-xl font-semibold text-dark mb-4">Changes</h2>
-          <p>We may update these Terms of Service from time to time. Continued use of our website after changes constitutes acceptance of the revised terms.</p>
+          <h2 class="font-heading text-xl font-semibold text-dark mb-4">Changes to These Terms</h2>
+          <p>We may update these Terms of Service from time to time. When we do, we will revise the effective date at the top of this page. Continued use of our website or services after changes constitutes acceptance of the revised terms.</p>
         </div>
 
         <div class="rounded-card border border-dark/[0.06] bg-warm-gray p-8">
-          <h2 class="font-heading text-xl font-semibold text-dark mb-4">Contact</h2>
-          <p>For questions about these terms, please contact us through our <a href="/contact/" class="text-accent hover:underline">contact page</a>.</p>
+          <h2 class="font-heading text-xl font-semibold text-dark mb-4">Privacy Policy</h2>
+          <p>Your use of our website and services is also governed by our <a href="/privacy" class="text-accent hover:underline">Privacy Policy</a>, which describes how we collect, use, and protect your information, including SMS opt-in data.</p>
+        </div>
+
+        <div class="rounded-card border border-dark/[0.06] bg-warm-gray p-8">
+          <h2 class="font-heading text-xl font-semibold text-dark mb-4">Contact Us</h2>
+          <p>If you have questions about these Terms of Service, contact us at:</p>
+          <p class="mt-3">
+            <strong>Buzz Co Curbing</strong><br />
+            Email: <a href="mailto:info@buzzcocurb.com" class="text-accent hover:underline">info@buzzcocurb.com</a><br />
+            Website: <a href="https://www.buzzcocurb.com" class="text-accent hover:underline">www.buzzcocurb.com</a>
+          </p>
         </div>
       </div>
     </div>
