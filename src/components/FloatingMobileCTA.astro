@@ -1,11 +1,14 @@
 ---
+import CallMenu from './CallMenu.astro';
+
 interface Props {
   phone: string;
   phoneHref: string;
   locationId: string;
+  isRootPage?: boolean;
 }
 
-const { phone, phoneHref, locationId } = Astro.props;
+const { phone, phoneHref, locationId, isRootPage = false } = Astro.props;
 const estimateUrl = `/${locationId}/get-estimate/`;
 ---
 
@@ -21,13 +24,18 @@ const estimateUrl = `/${locationId}/get-estimate/`;
   >
     Get a Free Estimate
   </a>
-  <a
-    href={phoneHref}
-    data-phone-href
-    class="font-data font-heading flex flex-1 items-center justify-center rounded-none border border-white/20 px-2 py-3 text-sm font-semibold text-white transition-all duration-300 hover:bg-white/5 hover:scale-[1.02] focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-dark whitespace-nowrap"
-  >
-    <span data-phone-display>{phone}</span>
-  </a>
+  {isRootPage ? (
+    <div class="flex-1">
+      <CallMenu variant="floating-cta" />
+    </div>
+  ) : (
+    <a
+      href={phoneHref}
+      class="font-data font-heading flex flex-1 items-center justify-center rounded-none border border-white/20 px-2 py-3 text-sm font-semibold text-white transition-all duration-300 hover:bg-white/5 hover:scale-[1.02] focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-dark whitespace-nowrap"
+    >
+      {phone}
+    </a>
+  )}
 </div>
 
 <script>

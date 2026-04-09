@@ -8,9 +8,11 @@ interface Props {
   phone: string;
   phoneHref: string;
   estimateUrl: string;
+  isRootPage?: boolean;
 }
 
-const { locationId, locationName, cityName, stateName = 'Utah', headline, phone, phoneHref, estimateUrl } = Astro.props;
+import CallMenu from './CallMenu.astro';
+const { locationId, locationName, cityName, stateName = 'Utah', headline, phone, phoneHref, estimateUrl, isRootPage = false } = Astro.props;
 ---
 
 <section
@@ -63,13 +65,16 @@ const { locationId, locationName, cityName, stateName = 'Utah', headline, phone,
       </a>
       <div class="flex items-center gap-6">
         <span class="font-body text-lg text-white/50">or</span>
-        <a
-          href={phoneHref}
-          data-phone-href
-          class="font-data text-xl font-medium text-white/90 transition-colors hover:text-white"
-        >
-          Call <span data-phone-display>{phone}</span>
-        </a>
+        {isRootPage ? (
+          <CallMenu variant="hero" />
+        ) : (
+          <a
+            href={phoneHref}
+            class="font-data text-xl font-medium text-white/90 transition-colors hover:text-white"
+          >
+            Call {phone}
+          </a>
+        )}
       </div>
     </div>
 

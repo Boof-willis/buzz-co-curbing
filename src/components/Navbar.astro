@@ -1,12 +1,15 @@
 ---
+import CallMenu from './CallMenu.astro';
+
 interface Props {
   locationId: string;
   phone: string;
   phoneHref: string;
   showFaq?: boolean;
+  isRootPage?: boolean;
 }
 
-const { locationId, phone, phoneHref, showFaq = false } = Astro.props;
+const { locationId, phone, phoneHref, showFaq = false, isRootPage = false } = Astro.props;
 const estimateUrl = `/${locationId}/get-estimate/`;
 ---
 
@@ -121,13 +124,18 @@ const estimateUrl = `/${locationId}/get-estimate/`;
           FAQ
         </a>
       )}
-      <a
-        href={phoneHref}
-        data-phone-href
-        class="font-data mt-8 py-4 text-xl font-medium text-gold transition-all duration-500 hover:text-gold/80 focus:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-inset rounded-none opacity-0 translate-y-4 group-[.is-open]:opacity-100 group-[.is-open]:translate-y-0 group-[.is-open]:delay-[300ms]"
-      >
-        <span data-phone-display>{phone}</span>
-      </a>
+      {isRootPage ? (
+        <div class="mt-8 py-4 opacity-0 translate-y-4 group-[.is-open]:opacity-100 group-[.is-open]:translate-y-0 group-[.is-open]:delay-[300ms] transition-all duration-500">
+          <CallMenu variant="mobile-menu" />
+        </div>
+      ) : (
+        <a
+          href={phoneHref}
+          class="font-data mt-8 py-4 text-xl font-medium text-gold transition-all duration-500 hover:text-gold/80 focus:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-inset rounded-none opacity-0 translate-y-4 group-[.is-open]:opacity-100 group-[.is-open]:translate-y-0 group-[.is-open]:delay-[300ms]"
+        >
+          {phone}
+        </a>
+      )}
     </nav>
 
     <div class="mt-auto pt-8 opacity-0 translate-y-4 transition-all duration-500 group-[.is-open]:opacity-100 group-[.is-open]:translate-y-0 group-[.is-open]:delay-[350ms]">

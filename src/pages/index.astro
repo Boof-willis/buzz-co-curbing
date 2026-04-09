@@ -27,6 +27,7 @@ const allPriorityCities = locationsData.locations.flatMap(l => l.priorityCities)
   phone={loc.phone}
   phoneHref={loc.phoneHref}
   showFaq={true}
+  isRootPage={true}
 >
   <Hero
     locationId={loc.id}
@@ -35,6 +36,7 @@ const allPriorityCities = locationsData.locations.flatMap(l => l.priorityCities)
     phone={loc.phone}
     phoneHref={loc.phoneHref}
     estimateUrl={`/${loc.id}/get-estimate/`}
+    isRootPage={true}
   />
   <TrustBar />
   <Features locationId={loc.id} cityName="Utah" />

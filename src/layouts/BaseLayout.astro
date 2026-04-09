@@ -23,6 +23,7 @@ interface Props {
   phone?: string;
   phoneHref?: string;
   showFaq?: boolean;
+  isRootPage?: boolean;
 }
 
 const {
@@ -38,6 +39,7 @@ const {
   phone = '(435) 557-3648',
   phoneHref = 'tel:+14355573648',
   showFaq = false,
+  isRootPage = false,
 } = Astro.props;
 ---
 
@@ -80,7 +82,7 @@ const {
       Skip to content
     </a>
 
-    <Navbar locationId={locationId} phone={phone} phoneHref={phoneHref} showFaq={showFaq} />
+    <Navbar locationId={locationId} phone={phone} phoneHref={phoneHref} showFaq={showFaq} isRootPage={isRootPage} />
     <NavbarIsland client:idle />
 
     <main id="main-content">
@@ -88,7 +90,7 @@ const {
     </main>
 
     <Footer locationId={locationId} phone={phone} phoneHref={phoneHref} />
-    <FloatingMobileCTA phone={phone} phoneHref={phoneHref} locationId={locationId} />
+    <FloatingMobileCTA phone={phone} phoneHref={phoneHref} locationId={locationId} isRootPage={isRootPage} />
     <PhoneGeoSwap client:idle />
     <HeroAnimations client:visible />
     <FAQAccordion client:visible />

@@ -47,6 +47,8 @@ export default function EstimateSurvey({ locationId }) {
     name: '',
     phone: '',
     email: '',
+    agreeTerms: false,
+    agreeMarketing: false,
   });
 
   const update = (field, value) => setData((prev) => ({ ...prev, [field]: value }));
@@ -57,7 +59,7 @@ export default function EstimateSurvey({ locationId }) {
       case 2: return data.linearFeet;
       case 3: return data.curbStyle;
       case 4: return true;
-      case 5: return data.name && data.phone && data.email;
+      case 5: return data.name && data.email;
       default: return false;
     }
   };
@@ -328,13 +330,12 @@ export default function EstimateSurvey({ locationId }) {
           </div>
 
           <div className="space-y-1.5">
-            <label htmlFor="survey-phone" className="font-body text-sm font-semibold text-dark">Phone Number <span className="text-red-500">*</span></label>
+            <label htmlFor="survey-phone" className="font-body text-sm font-semibold text-dark">Phone Number</label>
             <input
               type="tel"
               id="survey-phone"
               value={data.phone}
               onChange={(e) => update('phone', e.target.value)}
-              required
               className="w-full rounded-none border-2 border-dark/[0.08] bg-white px-5 py-4 font-body text-dark placeholder:text-dark/30 focus:border-gold focus:outline-none focus:ring-0 transition-colors"
               placeholder="(555) 123-4567"
             />
@@ -351,6 +352,33 @@ export default function EstimateSurvey({ locationId }) {
               className="w-full rounded-none border-2 border-dark/[0.08] bg-white px-5 py-4 font-body text-dark placeholder:text-dark/30 focus:border-gold focus:outline-none focus:ring-0 transition-colors"
               placeholder="john@example.com"
             />
+          </div>
+
+          {/* Compliance Checkboxes */}
+          <div className="space-y-3 pt-2">
+            <label className="flex items-start gap-3 cursor-pointer">
+              <input
+                type="checkbox"
+                checked={data.agreeTerms}
+                onChange={(e) => update('agreeTerms', e.target.checked)}
+                className="mt-0.5 h-4 w-4 shrink-0 accent-[#fcc33c]"
+              />
+              <span className="font-body text-xs text-dark/60 leading-relaxed">
+                I consent to receive transactional messages from Buzz Co Curbing at the phone number provided. Message frequency may vary. Message &amp; data rates may apply. Reply HELP for help or STOP to opt-out.
+              </span>
+            </label>
+
+            <label className="flex items-start gap-3 cursor-pointer">
+              <input
+                type="checkbox"
+                checked={data.agreeMarketing}
+                onChange={(e) => update('agreeMarketing', e.target.checked)}
+                className="mt-0.5 h-4 w-4 shrink-0 accent-[#fcc33c]"
+              />
+              <span className="font-body text-xs text-dark/60 leading-relaxed">
+                I consent to receive marketing and promotional messages from Buzz Co Curbing at the phone number provided. Message frequency may vary. Message &amp; data rates may apply. Reply HELP for help or STOP to opt-out.
+              </span>
+            </label>
           </div>
         </div>
       )}
@@ -394,6 +422,17 @@ export default function EstimateSurvey({ locationId }) {
           </button>
         )}
       </div>
+
+      {/* TOS & Privacy links on last step */}
+      {step === TOTAL_STEPS && (
+        <div className="mt-4 text-center">
+          <p className="font-body text-xs text-dark/40">
+            <a href="/terms" target="_blank" className="underline hover:text-dark/60">Terms of Service</a>
+            {' '}&middot;{' '}
+            <a href="/privacy" target="_blank" className="underline hover:text-dark/60">Privacy Policy</a>
+          </p>
+        </div>
+      )}
     </form>
   );
 }
